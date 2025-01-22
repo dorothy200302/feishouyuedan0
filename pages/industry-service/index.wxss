@@ -1,0 +1,169 @@
+.container {
+  min-height: 100vh;
+  background: #f7f8fa;
+}
+
+.search-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  padding: 20rpx 0;
+}
+
+.section {
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 30rpx;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.more {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: auto;
+}
+
+.service-count {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 10rpx;
+}
+
+.filter {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.filter van-icon {
+  margin-left: 6rpx;
+}
+
+/* 服务商列表 */
+.provider-scroll {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.provider-list {
+  display: inline-flex;
+  padding: 10rpx 0;
+}
+
+.provider-item {
+  margin-right: 30rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+}
+
+.provider-logo {
+  width: 100%;
+  height: 100%;
+}
+
+/* 服务列表 */
+.service-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-item {
+  background: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.service-image {
+  width: 100%;
+  height: 300rpx;
+}
+
+.service-content {
+  padding: 20rpx;
+}
+
+.service-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.service-price {
+  margin-bottom: 16rpx;
+}
+
+.price {
+  font-size: 36rpx;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.unit {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 8rpx;
+}
+
+.service-provider {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.provider-avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  margin-right: 12rpx;
+}
+
+.service-provider text {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.service-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-count {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 22rpx;
+  color: #1890ff;
+  background: rgba(24,144,255,0.1);
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+  margin-left: 12rpx;
+} 

@@ -1,0 +1,70 @@
+<view class="container">
+  <!-- 顶部搜索区域 -->
+  <view class="header">
+    <view class="location" bindtap="onLocationChange">
+      <text>{{ location }}</text>
+      <van-icon name="arrow-down" size="12px" color="#999" />
+    </view>
+    <van-search
+      value="{{ searchValue }}"
+      placeholder="搜索设备"
+      bind:change="onSearch"
+      shape="round"
+      background="#fff"
+    />
+  </view>
+
+  <!-- 设备分类 -->
+  <view class="category-list">
+    <view 
+      class="category-item {{ activeTab === index ? 'active' : '' }}" 
+      wx:for="{{ categories }}" 
+      wx:key="id"
+      bindtap="onTabChange"
+      data-index="{{ index }}"
+    >
+      <view class="icon-wrapper">
+        <van-icon name="{{ item.icon }}" size="48rpx" color="{{ activeTab === index ? '#FF6B00' : '#666' }}" />
+      </view>
+      <text class="category-name">{{ item.name }}</text>
+    </view>
+  </view>
+
+  <!-- 设备列表 -->
+  <view class="rental-list">
+    <view 
+      class="rental-item" 
+      wx:for="{{ rentals }}" 
+      wx:key="id"
+      bindtap="onRentalTap"
+      data-id="{{ item.id }}"
+    >
+      <image src="{{ item.image }}" mode="aspectFill" class="rental-image" />
+      <view class="rental-info">
+        <view class="rental-name">{{ item.name }}</view>
+        <view class="rental-specs">{{ item.specs }}</view>
+        <view class="rental-price">
+          <text class="price">¥{{ item.price }}</text>
+          <text class="unit">/{{ item.unit }}起</text>
+        </view>
+        <view class="rental-extra">
+          <text class="deposit">押金：¥{{ item.deposit }}</text>
+          <text class="min-days">最少{{ item.minDays }}天</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 共享设备入口 -->
+  <view class="share-entry">
+    <van-button 
+      icon="share" 
+      type="primary" 
+      size="large" 
+      round 
+      color="#1890ff"
+      custom-class="share-btn"
+      url="/pages/rental-share/index"
+    >共享我的设备</van-button>
+  </view>
+</view> 

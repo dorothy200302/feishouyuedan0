@@ -1,0 +1,70 @@
+<view class="container">
+  <!-- 行业分类标签页 -->
+  <van-tabs 
+    active="{{ activeTab }}" 
+    bind:change="onTabChange"
+    sticky
+    swipeable
+    animated
+    color="#1890ff"
+  >
+    <van-tab 
+      wx:for="{{ industries }}" 
+      wx:key="id" 
+      title="{{ item.name }}"
+      info="{{ item.count }}"
+    >
+      <!-- 飞手列表 -->
+      <view class="pilot-list">
+        <view 
+          class="pilot-item" 
+          wx:for="{{ pilots }}" 
+          wx:key="id"
+          bindtap="onPilotTap"
+          data-id="{{ item.id }}"
+        >
+          <view class="pilot-header">
+            <image class="avatar" src="{{ item.avatar }}" mode="aspectFill" />
+            <view class="pilot-info">
+              <view class="pilot-name">{{ item.name }}</view>
+              <view class="pilot-tags">
+                <text class="tag" wx:for="{{ item.tags }}" wx:key="*this">{{ item }}</text>
+                <text class="experience">{{ item.experience }}</text>
+              </view>
+            </view>
+            <view class="pilot-location">
+              <van-icon name="location-o" />
+              <text>{{ item.location }}</text>
+            </view>
+          </view>
+          
+          <view class="pilot-body">
+            <view class="skill-section">
+              <view class="section-title">技能标签</view>
+              <view class="skill-tags">
+                <text class="skill-tag" wx:for="{{ item.skills }}" wx:key="*this">{{ item }}</text>
+              </view>
+            </view>
+            
+            <view class="cert-section">
+              <view class="section-title">资质证书</view>
+              <view class="cert-tags">
+                <text class="cert-tag" wx:for="{{ item.certificates }}" wx:key="*this">{{ item }}</text>
+              </view>
+            </view>
+            
+            <view class="stats-section">
+              <view class="stat-item">
+                <text class="stat-value">{{ item.completedOrders }}</text>
+                <text class="stat-label">已完成订单</text>
+              </view>
+              <view class="contact-btn">
+                <van-button type="primary" size="small" round color="#1890ff">联系飞手</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view> 

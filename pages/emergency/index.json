@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "应急救援",
+  "usingComponents": {
+    "van-empty": "@vant/weapp/empty/index"
+  }
+} 

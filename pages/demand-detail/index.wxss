@@ -1,0 +1,228 @@
+.container {
+  min-height: 100vh;
+  background: #f6f6f6;
+  padding-bottom: 120rpx;
+}
+
+/* 需求基本信息 */
+.demand-header {
+  background: #fff;
+  padding: 30rpx;
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.demand-type {
+  font-size: 24rpx;
+  color: #1AAD19;
+  border: 1rpx solid #1AAD19;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+}
+
+.demand-status {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.demand-status.ongoing {
+  color: #ff4d4f;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.price-info {
+  margin-top: 20rpx;
+}
+
+.price {
+  font-size: 40rpx;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.unit {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 8rpx;
+}
+
+/* 公共section样式 */
+.detail-section,
+.content-section,
+.requirement-section,
+.company-section {
+  margin-top: 20rpx;
+  background: #fff;
+  padding: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  position: relative;
+  padding-left: 20rpx;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6rpx;
+  height: 28rpx;
+  background: #1AAD19;
+  border-radius: 3rpx;
+}
+
+/* 需求详情 */
+.detail-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+}
+
+.detail-item .label {
+  font-size: 28rpx;
+  color: #666;
+  margin-right: 20rpx;
+}
+
+.detail-item .value {
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 工作内容 */
+.content-text {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 任职要求 */
+.requirement-list {
+  padding-left: 20rpx;
+}
+
+.requirement-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16rpx;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+}
+
+.requirement-item .dot {
+  margin-right: 12rpx;
+  color: #1AAD19;
+}
+
+/* 公司信息 */
+.company-info {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.company-logo {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+
+.company-detail {
+  flex: 1;
+}
+
+.company-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.company-meta {
+  display: flex;
+  gap: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.contact-btn {
+  padding: 12rpx 24rpx;
+  background: #f6f6f6;
+  color: #666;
+  font-size: 28rpx;
+  border-radius: 32rpx;
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  padding: 20rpx 30rpx;
+  box-shadow: 0 -2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.action-buttons button {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  background: none;
+}
+
+.btn-share,
+.btn-collect {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.btn-share image,
+.btn-collect image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 4rpx;
+}
+
+.btn-apply {
+  flex: 2;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #1AAD19;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 40rpx;
+} 

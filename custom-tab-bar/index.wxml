@@ -1,0 +1,14 @@
+<view class="tab-bar-wrapper">
+  <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#1890ff" inactive-color="#999" safe-area-inset-bottom="{{ true }}">
+    <van-tabbar-item wx:for="{{ list }}" wx:key="text" icon="{{ item.icon }}">
+      {{ item.text }}
+    </van-tabbar-item>
+  </van-tabbar>
+  
+  <!-- 发布按钮 -->
+  <view class="publish-wrapper">
+    <view class="publish-button" bindtap="onPublish">
+      <van-icon name="plus" size="28px" color="#fff" />
+    </view>
+  </view>
+</view> 

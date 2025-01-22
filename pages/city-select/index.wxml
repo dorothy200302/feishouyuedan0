@@ -1,0 +1,62 @@
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search-bar">
+    <van-search
+      value="{{ searchValue }}"
+      placeholder="搜索城市"
+      bind:change="onSearch"
+      shape="round"
+    />
+  </view>
+
+  <!-- 当前定位 -->
+  <view class="section">
+    <view class="section-title">当前定位</view>
+    <view class="current-city" bindtap="onCityTap" data-city="{{currentCity}}">
+      <van-icon name="location-o" color="#1890ff" />
+      <text>{{currentCity}}</text>
+    </view>
+  </view>
+
+  <!-- 热门城市 -->
+  <view class="section">
+    <view class="section-title">热门城市</view>
+    <view class="city-grid">
+      <view 
+        class="city-item" 
+        wx:for="{{hotCities}}" 
+        wx:key="*this"
+        bindtap="onCityTap"
+        data-city="{{item}}"
+      >{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 城市列表 -->
+  <view class="city-list">
+    <view class="section" wx:for="{{cityList}}" wx:key="initial">
+      <view class="section-title">{{item.initial}}</view>
+      <view class="city-column">
+        <view 
+          class="city-item" 
+          wx:for="{{item.cities}}" 
+          wx:key="*this"
+          wx:for-item="city"
+          bindtap="onCityTap"
+          data-city="{{city}}"
+        >{{city}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 右侧索引 -->
+  <view class="index-bar">
+    <view 
+      class="index-item" 
+      wx:for="{{cityList}}" 
+      wx:key="initial"
+      bindtap="onIndexTap"
+      data-index="{{index}}"
+    >{{item.initial}}</view>
+  </view>
+</view> 

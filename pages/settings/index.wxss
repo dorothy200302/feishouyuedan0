@@ -1,0 +1,47 @@
+.container {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding: 30rpx;
+}
+
+.settings-list {
+  width: 100%;
+}
+
+.settings-group {
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 30rpx;
+}
+
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.settings-item:last-child {
+  border-bottom: none;
+}
+
+.settings-item text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.cache-size, .version {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.logout-btn {
+  margin-top: 60rpx;
+  background: #fff;
+  color: #ff4d4f;
+  text-align: center;
+  padding: 30rpx;
+  border-radius: 16rpx;
+  font-size: 32rpx;
+} 

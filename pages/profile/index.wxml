@@ -1,0 +1,36 @@
+<!--pages/profile/index.wxml-->
+<view class="container">
+  <!-- 用户信息卡片 -->
+  <view class="user-card" bindtap="onLogin" wx:if="{{!hasUserInfo}}">
+    <image class="avatar" src="https://via.placeholder.com/100/1890ff/ffffff?text=头像" mode="aspectFill"></image>
+    <view class="info">
+      <text class="nickname">点击登录</text>
+      <text class="desc">登录后查看更多信息</text>
+    </view>
+    <van-icon name="arrow" color="#999" size="40rpx" />
+  </view>
+  <view class="user-card" wx:else>
+    <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+    <view class="info">
+      <text class="nickname">{{userInfo.nickName}}</text>
+      <text class="desc">已登录</text>
+    </view>
+    <van-icon name="arrow" color="#999" size="40rpx" />
+  </view>
+
+  <!-- 服务菜单 -->
+  <view class="menu-section">
+    <view class="menu-item" data-type="setting" bindtap="onMenuTap">
+      <van-icon name="setting-o" color="#1890ff" size="48rpx" />
+      <text>设置</text>
+    </view>
+    <view class="menu-item" data-type="service" bindtap="onMenuTap">
+      <van-icon name="service-o" color="#52c41a" size="48rpx" />
+      <text>客服</text>
+    </view>
+    <view class="menu-item" data-type="about" bindtap="onMenuTap">
+      <van-icon name="info-o" color="#722ed1" size="48rpx" />
+      <text>关于</text>
+    </view>
+  </view>
+</view>

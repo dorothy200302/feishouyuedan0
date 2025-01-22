@@ -1,0 +1,149 @@
+.container {
+  min-height: 100vh;
+  background: #f7f8fa;
+}
+
+/* 顶部搜索区域 */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 分类导航 */
+.category-list {
+  display: flex;
+  background: #fff;
+  padding: 30rpx 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.category-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.icon-wrapper {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 24rpx;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12rpx;
+  transition: all 0.3s;
+}
+
+.category-item.active .icon-wrapper {
+  background: #FFF2E8;
+}
+
+.category-name {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.category-item.active .category-name {
+  color: #FF6B00;
+}
+
+/* 设备列表 */
+.rental-list {
+  padding: 20rpx;
+}
+
+.rental-item {
+  display: flex;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.rental-image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+
+.rental-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.rental-name {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 12rpx;
+}
+
+.rental-specs {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.rental-price {
+  margin-bottom: 12rpx;
+}
+
+.rental-price .price {
+  font-size: 36rpx;
+  color: #FF6B00;
+  font-weight: bold;
+}
+
+.rental-price .unit {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 4rpx;
+}
+
+.rental-extra {
+  display: flex;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.rental-extra .deposit {
+  margin-right: 20rpx;
+}
+
+.rental-extra .min-days {
+  padding-left: 20rpx;
+  border-left: 1rpx solid #eee;
+}
+
+/* 共享入口 */
+.share-entry {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20rpx;
+  background: #fff;
+  box-shadow: 0 -2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.share-btn {
+  width: 100% !important;
+} 

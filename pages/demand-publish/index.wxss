@@ -1,0 +1,213 @@
+.container {
+  min-height: 100vh;
+  background: #f6f6f6;
+  padding-bottom: 120rpx;
+}
+
+/* 表单区块通用样式 */
+.form-section {
+  margin-top: 20rpx;
+  background: #fff;
+  padding: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 需求类型选择 */
+.type-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.type-item {
+  padding: 24rpx;
+  border-radius: 8rpx;
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.type-item text:first-child {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.type-item .desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.type-item.active {
+  background: #e6f7e6;
+  border: 2rpx solid #1AAD19;
+}
+
+.type-item.active text:first-child {
+  color: #1AAD19;
+}
+
+/* 表单项通用样式 */
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.required::before {
+  content: '*';
+  color: #ff4d4f;
+  margin-right: 8rpx;
+}
+
+input {
+  width: 100%;
+  height: 80rpx;
+  background: #f6f6f6;
+  border-radius: 8rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.price-input {
+  display: flex;
+  align-items: center;
+  background: #f6f6f6;
+  border-radius: 8rpx;
+  padding: 0 24rpx;
+}
+
+.currency {
+  font-size: 32rpx;
+  color: #333;
+  margin-right: 8rpx;
+}
+
+.price-input input {
+  flex: 1;
+  background: none;
+  padding: 0;
+}
+
+.unit {
+  font-size: 28rpx;
+  color: #999;
+  margin-left: 8rpx;
+}
+
+.picker {
+  width: 100%;
+  height: 80rpx;
+  background: #f6f6f6;
+  border-radius: 8rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.picker.placeholder {
+  color: #999;
+}
+
+textarea {
+  width: 100%;
+  height: 240rpx;
+  background: #f6f6f6;
+  border-radius: 8rpx;
+  padding: 24rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.textarea-counter {
+  text-align: right;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+/* 任职要求 */
+.add-btn {
+  font-size: 28rpx;
+  color: #1AAD19;
+  font-weight: normal;
+}
+
+.requirement-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.requirement-item {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.requirement-item input {
+  flex: 1;
+}
+
+.delete-btn {
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-btn image {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+/* 提交按钮 */
+.submit-section {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  padding: 20rpx 30rpx;
+  display: flex;
+  gap: 20rpx;
+  box-shadow: 0 -2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.btn-preview,
+.btn-submit {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+}
+
+.btn-preview {
+  background: #f6f6f6;
+  color: #666;
+}
+
+.btn-submit {
+  background: #1AAD19;
+  color: #fff;
+} 

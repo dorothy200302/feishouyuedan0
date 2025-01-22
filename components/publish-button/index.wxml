@@ -1,0 +1,5 @@
+<view class="publish-button" bindtap="onTap">
+  <view class="button-wrapper">
+    <view class="plus-icon">+</view>
+  </view>
+</view> 

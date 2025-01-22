@@ -1,0 +1,167 @@
+<view class="container">
+  <!-- 顶部栏 -->
+  <view class="header">
+    <view class="location" bindtap="onLocationTap">
+      <van-icon name="location-o" color="#1890ff" />
+      <text>{{ location }}</text>
+      <van-icon name="arrow-down" />
+    </view>
+    <view class="search-bar" bindtap="onSearchTap">
+      <van-search
+        value="{{ searchValue }}"
+        placeholder="搜索需求、服务、课程"
+        disabled
+        shape="round"
+      />
+    </view>
+  </view>
+
+  <!-- 导航菜单 -->
+  <view class="nav-grid">
+    <view 
+      class="nav-item" 
+      wx:for="{{ navItems }}" 
+      wx:key="id"
+      bindtap="onNavTap"
+      data-url="{{ item.url }}"
+      style="background: {{ item.color }}10"
+    >
+      <van-icon 
+        name="{{ item.icon }}" 
+        size="48rpx"
+        color="{{ item.color }}"
+      />
+      <text style="color: {{ item.color }}">{{ item.text }}</text>
+    </view>
+  </view>
+
+  <!-- 轮播图 -->
+  <view class="banner">
+    <swiper autoplay="{{true}}" interval="3000" circular="{{true}}" indicator-dots="{{true}}">
+      <swiper-item wx:for="{{banners}}" wx:key="id" class="banner-item">
+        <image src="{{item.image}}" mode="aspectFill" />
+        <view class="banner-info">
+          <view class="banner-title">{{item.title}}</view>
+          <view class="banner-desc">{{item.description}}</view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 行业分类 -->
+  <view class="category-section">
+    <view class="section-header">
+      <text class="title">本地推荐飞手</text>
+      <text class="count">(22人)</text>
+      <navigator url="/pages/pilots/index" class="more">更多 ></navigator>
+    </view>
+    <view class="category-list">
+      <view 
+        class="category-item" 
+        wx:for="{{categories}}" 
+        wx:key="id"
+        bindtap="onCategoryTap"
+        data-id="{{item.id}}"
+      >
+        <image src="{{item.image}}" mode="aspectFill" />
+        <view class="category-info">
+          <text class="name">{{item.name}}</text>
+          <text class="count">{{item.count}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 推荐飞手 -->
+  <view class="pilot-section">
+    <view class="section-header">
+      <text class="title">推荐飞手</text>
+      <navigator url="/pages/pilots/index" class="more">更多 ></navigator>
+    </view>
+    <view class="pilot-list">
+      <view 
+        class="pilot-item" 
+        wx:for="{{pilots}}" 
+        wx:key="id"
+        bindtap="onPilotTap"
+        data-id="{{item.id}}"
+      >
+        <image class="avatar" src="{{item.avatar}}" mode="aspectFill" />
+        <view class="pilot-info">
+          <view class="pilot-name">{{item.name}}</view>
+          <view class="pilot-tags">
+            <text class="tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+            <text class="experience">{{item.experience}}</text>
+          </view>
+          <view class="pilot-desc">{{item.description || item.equipment}}</view>
+          <view class="pilot-location">
+            <van-icon name="location-o" />
+            <text>{{item.location}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设备租赁 -->
+  <view class="rental-section">
+    <view class="section-header">
+      <text class="title">热租爆品</text>
+      <navigator url="/pages/rental/index" class="more">更多 ></navigator>
+    </view>
+    <view class="rental-list">
+      <view 
+        class="rental-item" 
+        wx:for="{{rentals}}" 
+        wx:key="id"
+        bindtap="onRentalTap"
+        data-id="{{item.id}}"
+      >
+        <image src="{{item.image}}" mode="aspectFill" />
+        <view class="rental-info">
+          <view class="rental-name">{{item.name}}</view>
+          <view class="rental-price">
+            <text class="unit">¥</text>
+            <text class="amount">{{item.price}}</text>
+            <text class="unit">/{{item.unit}}起</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 技能课堂 -->
+  <view class="course-section">
+    <view class="section-header">
+      <text class="title">推荐课程</text>
+      <navigator url="/pages/courses/index" class="more">更多 ></navigator>
+    </view>
+    <view class="course-list">
+      <view 
+        class="course-item" 
+        wx:for="{{courses}}" 
+        wx:key="id"
+        bindtap="onCourseTap"
+        data-id="{{item.id}}"
+      >
+        <image src="{{item.image}}" mode="aspectFill" />
+        <view class="course-info">
+          <view class="course-title">{{item.title}}</view>
+          <view class="course-provider">{{item.provider}}</view>
+          <view class="course-students">{{item.students}}人学习</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 发布按钮 -->
+  <publish-button />
+</view>
+
+<!-- 底部导航栏 -->
+<van-tabbar active="{{ active }}" bind:change="onChange" active-color="#FF6B00" inactive-color="#999999">
+  <van-tabbar-item icon="home-o">首页</van-tabbar-item>
+  <van-tabbar-item icon="shop-o">行业服务</van-tabbar-item>
+  <van-tabbar-item icon="friends-o">需求大厅</van-tabbar-item>
+  <van-tabbar-item icon="user-o">我的</van-tabbar-item>
+</van-tabbar> 

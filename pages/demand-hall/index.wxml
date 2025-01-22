@@ -1,0 +1,80 @@
+<view class="container">
+  <!-- 顶部搜索栏 -->
+  <view class="search-header">
+    <view class="search-bar">
+      <icon type="search" size="14"></icon>
+      <input type="text" placeholder="搜索需求..." placeholder-class="search-placeholder" />
+    </view>
+  </view>
+
+  <!-- 需求类型选择 -->
+  <view class="demand-types">
+    <view class="type-item {{currentType === 'flexible' ? 'active' : ''}}" 
+          bindtap="onTypeSelect" 
+          data-type="flexible">
+      灵活用工需求
+    </view>
+    <view class="type-item {{currentType === 'service' ? 'active' : ''}}" 
+          bindtap="onTypeSelect" 
+          data-type="service">
+      整体服务需求
+    </view>
+    <view class="type-item {{currentType === 'solution' ? 'active' : ''}}" 
+          bindtap="onTypeSelect" 
+          data-type="solution">
+      解决方案需求
+    </view>
+  </view>
+
+  <!-- 需求列表 -->
+  <view class="demand-list">
+    <view class="demand-item" wx:for="{{demands}}" wx:key="id">
+      <view class="demand-header">
+        <view class="demand-type">{{item.type}}</view>
+        <view class="demand-status {{item.status === '进行中' ? 'ongoing' : ''}}">{{item.status}}</view>
+      </view>
+      <view class="demand-content">
+        <view class="demand-title">{{item.title}}</view>
+        <view class="demand-desc">{{item.description}}</view>
+        <view class="demand-meta">
+          <view class="meta-item">
+            <text class="label">任务需求：</text>
+            <text>{{item.taskCount}}人</text>
+          </view>
+          <view class="meta-item">
+            <text class="label">地点：</text>
+            <text>{{item.location}}</text>
+          </view>
+        </view>
+        <view class="demand-price">
+          <text class="price">¥{{item.price}}</text>
+          <text class="unit">起/次</text>
+        </view>
+      </view>
+      <view class="demand-footer">
+        <view class="company-info">
+          <image src="{{item.companyLogo}}" mode="aspectFit"></image>
+          <text>{{item.companyName}}</text>
+        </view>
+        <view class="action-buttons">
+          <button class="btn-detail" bindtap="viewDetail" data-id="{{item.id}}">查看详情</button>
+          <button class="btn-apply" bindtap="applyDemand" data-id="{{item.id}}">立即申请</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 发布需求按钮 -->
+  <view class="float-button" bindtap="publishDemand">
+    <van-icon name="plus" size="32rpx" color="#fff" />
+    <text>发布需求</text>
+  </view>
+
+  <!-- 加载更多 -->
+  <view class="loading-more" wx:if="{{hasMore}}">
+    <text>加载中...</text>
+  </view>
+  <view class="no-more" wx:else>
+    <text>没有更多了</text>
+  </view>
+</view> 

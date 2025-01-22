@@ -1,0 +1,69 @@
+<view class="container">
+  <!-- 顶部搜索区域 -->
+  <view class="header">
+    <van-search
+      value="{{ searchValue }}"
+      placeholder="搜索课程"
+      bind:change="onSearch"
+      shape="round"
+      background="#fff"
+    />
+  </view>
+
+  <!-- 分类导航 -->
+  <view class="category-nav">
+    <van-grid column-num="4" border="{{ false }}" gutter="{{ 10 }}">
+      <van-grid-item
+        wx:for="{{ categories }}"
+        wx:key="id"
+        icon="{{ item.icon }}"
+        text="{{ item.name }}"
+        bind:click="onTabChange"
+        data-index="{{ index }}"
+      />
+    </van-grid>
+  </view>
+
+  <!-- 课程列表 -->
+  <view class="course-list">
+    <view 
+      class="course-item" 
+      wx:for="{{ courses }}" 
+      wx:key="id"
+      bindtap="onCourseTap"
+      data-id="{{ item.id }}"
+    >
+      <image class="course-image" src="{{ item.image }}" mode="aspectFill" />
+      <view class="course-info">
+        <view class="course-header">
+          <view class="course-title">{{ item.title }}</view>
+          <view class="course-tags">
+            <text class="tag" wx:for="{{ item.tags }}" wx:key="*this">{{ item }}</text>
+          </view>
+        </view>
+        
+        <view class="course-provider">
+          <image class="provider-logo" src="/static/images/providers/mmc.png" mode="aspectFit" />
+          <text>{{ item.provider }}</text>
+        </view>
+
+        <view class="course-lessons">
+          <view class="lesson" wx:for="{{ item.lessons }}" wx:key="*this">{{ item }}</view>
+        </view>
+
+        <view class="course-footer">
+          <view class="students">
+            <van-icon name="friends-o" />
+            <text>{{ item.students }}人学习</text>
+          </view>
+          <van-button 
+            type="primary" 
+            size="small" 
+            round 
+            color="#1890ff"
+          >立即学习</van-button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

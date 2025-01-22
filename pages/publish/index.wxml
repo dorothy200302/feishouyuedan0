@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="publish-options">
+    <view class="option-item" bindtap="onPublishDemand">
+      <van-icon name="notes-o" size="48rpx" color="#FF6B00"/>
+      <text>发布需求</text>
+    </view>
+    <view class="option-item" bindtap="onPublishService">
+      <van-icon name="service-o" size="48rpx" color="#FF6B00"/>
+      <text>发布服务</text>
+    </view>
+    <view class="option-item" bindtap="onPublishRental">
+      <van-icon name="shopping-cart-o" size="48rpx" color="#FF6B00"/>
+      <text>发布租赁</text>
+    </view>
+  </view>
+</view> 

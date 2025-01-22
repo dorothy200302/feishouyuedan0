@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="header">
+    <text class="title">应急救援</text>
+  </view>
+  <view class="content">
+    <van-empty description="暂无应急救援信息" />
+  </view>
+</view> 

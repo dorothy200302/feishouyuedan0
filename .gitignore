@@ -1,0 +1,17 @@
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# WeChat Mini Program specific
+miniprogram_npm/
+node_modules/
+package-lock.json
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Project specific
+project.private.config.json 

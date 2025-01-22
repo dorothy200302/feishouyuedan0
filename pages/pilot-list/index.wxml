@@ -1,0 +1,85 @@
+<view class="container">
+  <!-- 顶部城市选择和搜索栏 -->
+  <view class="header">
+    <view class="location" bindtap="onLocationTap">
+      <text>{{ currentCity }}</text>
+      <van-icon name="arrow-down" />
+    </view>
+    <van-search
+      value="{{ searchValue }}"
+      placeholder="搜索飞手昵称/手机号"
+      bind:change="onSearch"
+      bind:search="onSearch"
+      shape="round"
+      background="transparent"
+    />
+  </view>
+
+  <!-- 本地推荐飞手 -->
+  <view class="recommend-section">
+    <view class="section-header">
+      <view class="title">
+        <van-icon name="thumb-circle-o" size="32rpx" class="thumb-icon" />
+        <text>本地推荐飞手</text>
+        <text class="count">({{ recommendCount }}人)</text>
+      </view>
+      <view class="more" bindtap="onMoreTap">更多<van-icon name="arrow" /></view>
+    </view>
+    
+    <view class="category-grid">
+      <view class="category-item" wx:for="{{ categories }}" wx:key="type" bindtap="onCategoryTap" data-type="{{ item.type }}">
+        <image src="{{ item.image }}" mode="aspectFill" />
+        <view class="category-info">
+          <text class="name">{{ item.name }}</text>
+          <text class="count">{{ item.count }}人</text>
+        </view>
+        <view class="pdf-tag" wx:if="{{ item.type === 'aerial' }}">PDF</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 广告banner -->
+  <view class="banner">
+    <image src="{{ bannerImage }}" mode="widthFix" />
+  </view>
+
+  <!-- 筛选条件 -->
+  <view class="filter-tabs">
+    <view class="tab" bindtap="showTaskFilter">
+      <text>任务能力</text>
+      <van-icon name="arrow-down" />
+    </view>
+    <view class="tab" bindtap="showLicenseFilter">
+      <text>执照类型</text>
+      <van-icon name="arrow-down" />
+    </view>
+    <view class="tab" bindtap="showPilotFilter">
+      <text>飞手类型</text>
+      <van-icon name="arrow-down" />
+    </view>
+  </view>
+
+  <!-- 飞手列表 -->
+  <view class="pilot-list">
+    <view class="pilot-item" wx:for="{{ pilots }}" wx:key="id">
+      <view class="pilot-avatar">
+        <image src="{{ item.avatar }}" mode="aspectFill" />
+      </view>
+      <view class="pilot-info">
+        <view class="pilot-header">
+          <text class="pilot-name">{{ item.name }}</text>
+          <van-button type="primary" size="small" round class="profile-btn">个人主页</van-button>
+        </view>
+        <view class="pilot-meta">
+          <text>{{ item.city }}</text>
+          <text>{{ item.experience }}</text>
+        </view>
+        <view class="pilot-tags">
+          <view class="tag" wx:for="{{ item.tags }}" wx:key="*this">{{ item }}</view>
+        </view>
+        <view class="pilot-desc" wx:if="{{ item.description }}">{{ item.description }}</view>
+        <view class="pilot-device" wx:if="{{ item.device }}">自带设备：{{ item.device }}</view>
+      </view>
+    </view>
+  </view>
+</view> 

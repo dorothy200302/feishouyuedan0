@@ -1,0 +1,112 @@
+<view class="container">
+  <form bindsubmit="submitForm">
+    <!-- 需求类型选择 -->
+    <view class="form-section">
+      <view class="section-title">需求类型</view>
+      <view class="type-selector">
+        <view class="type-item {{demandType === 'flexible' ? 'active' : ''}}" 
+              bindtap="selectType" 
+              data-type="flexible">
+          <text>灵活用工需求</text>
+          <text class="desc">短期、临时性的用工需求</text>
+        </view>
+        <view class="type-item {{demandType === 'service' ? 'active' : ''}}" 
+              bindtap="selectType" 
+              data-type="service">
+          <text>整体服务需求</text>
+          <text class="desc">完整的项目或服务外包需求</text>
+        </view>
+        <view class="type-item {{demandType === 'solution' ? 'active' : ''}}" 
+              bindtap="selectType" 
+              data-type="solution">
+          <text>解决方案需求</text>
+          <text class="desc">需要定制化解决方案的需求</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 基本信息 -->
+    <view class="form-section">
+      <view class="section-title">基本信息</view>
+      <view class="form-item">
+        <text class="label required">需求标题</text>
+        <input name="title" placeholder="请输入需求标题" maxlength="50" />
+      </view>
+      <view class="form-item">
+        <text class="label required">预算金额</text>
+        <view class="price-input">
+          <text class="currency">¥</text>
+          <input name="price" type="digit" placeholder="请输入金额" />
+          <text class="unit">起/次</text>
+        </view>
+      </view>
+      <view class="form-item">
+        <text class="label required">工作地点</text>
+        <picker mode="region" bindchange="onRegionChange" value="{{region}}">
+          <view class="picker {{region[0] ? '' : 'placeholder'}}">
+            {{region[0] ? region[0] + region[1] + region[2] : '请选择工作地点'}}
+          </view>
+        </picker>
+      </view>
+      <view class="form-item">
+        <text class="label required">需求人数</text>
+        <input name="taskCount" type="number" placeholder="请输入需求人数" />
+      </view>
+      <view class="form-item">
+        <text class="label required">工作时间</text>
+        <picker mode="date" start="{{startDate}}" end="{{endDate}}" bindchange="onDateChange" value="{{workTime}}">
+          <view class="picker {{workTime ? '' : 'placeholder'}}">
+            {{workTime || '请选择工作时间'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <!-- 工作内容 -->
+    <view class="form-section">
+      <view class="section-title">工作内容</view>
+      <view class="form-item">
+        <textarea name="description" placeholder="请详细描述工作内容、要求等信息" maxlength="1000" />
+        <view class="textarea-counter">{{descriptionLength}}/1000</view>
+      </view>
+    </view>
+
+    <!-- 任职要求 -->
+    <view class="form-section">
+      <view class="section-title">
+        任职要求
+        <text class="add-btn" bindtap="addRequirement">添加要求</text>
+      </view>
+      <view class="requirement-list">
+        <view class="requirement-item" wx:for="{{requirements}}" wx:key="index">
+          <input value="{{item}}" 
+                data-index="{{index}}" 
+                bindinput="updateRequirement" 
+                placeholder="请输入任职要求" />
+          <view class="delete-btn" bindtap="deleteRequirement" data-index="{{index}}">
+            <van-icon name="cross" color="#999" size="32rpx" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 联系方式 -->
+    <view class="form-section">
+      <view class="section-title">联系方式</view>
+      <view class="form-item">
+        <text class="label required">联系人</text>
+        <input name="contact" placeholder="请输入联系人姓名" />
+      </view>
+      <view class="form-item">
+        <text class="label required">手机号码</text>
+        <input name="phone" type="number" placeholder="请输入手机号码" maxlength="11" />
+      </view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <view class="submit-section">
+      <button class="btn-preview" bindtap="previewDemand">预览</button>
+      <button class="btn-submit" form-type="submit">发布需求</button>
+    </view>
+  </form>
+</view> 

@@ -1,0 +1,85 @@
+<view class="container">
+  <!-- 需求基本信息 -->
+  <view class="demand-header">
+    <view class="status-bar">
+      <view class="demand-type">{{demand.type}}</view>
+      <view class="demand-status {{demand.status === '进行中' ? 'ongoing' : ''}}">{{demand.status}}</view>
+    </view>
+    <view class="title">{{demand.title}}</view>
+    <view class="price-info">
+      <text class="price">¥{{demand.price}}</text>
+      <text class="unit">起/次</text>
+    </view>
+  </view>
+
+  <!-- 需求详情 -->
+  <view class="detail-section">
+    <view class="section-title">需求详情</view>
+    <view class="detail-content">
+      <view class="detail-item">
+        <text class="label">任务需求</text>
+        <text class="value">{{demand.taskCount}}人</text>
+      </view>
+      <view class="detail-item">
+        <text class="label">工作地点</text>
+        <text class="value">{{demand.location}}</text>
+      </view>
+      <view class="detail-item">
+        <text class="label">工作时间</text>
+        <text class="value">{{demand.workTime}}</text>
+      </view>
+      <view class="detail-item">
+        <text class="label">发布时间</text>
+        <text class="value">{{demand.publishTime}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 工作内容 -->
+  <view class="content-section">
+    <view class="section-title">工作内容</view>
+    <view class="content-text">{{demand.description}}</view>
+  </view>
+
+  <!-- 任职要求 -->
+  <view class="requirement-section">
+    <view class="section-title">任职要求</view>
+    <view class="requirement-list">
+      <view class="requirement-item" wx:for="{{demand.requirements}}" wx:key="index">
+        <text class="dot">•</text>
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 公司信息 -->
+  <view class="company-section">
+    <view class="section-title">发布方信息</view>
+    <view class="company-info">
+      <image class="company-logo" src="{{demand.companyLogo}}" mode="aspectFit"></image>
+      <view class="company-detail">
+        <view class="company-name">{{demand.companyName}}</view>
+        <view class="company-meta">
+          <text>认证企业</text>
+          <text>已完成{{demand.completedOrders}}单</text>
+        </view>
+      </view>
+      <view class="contact-btn" bindtap="contactCompany">联系企业</view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <view class="action-buttons">
+      <button class="btn-share" open-type="share">
+        <van-icon name="share-o" size="40rpx" />
+        <text>分享</text>
+      </button>
+      <button class="btn-collect" bindtap="toggleCollect">
+        <van-icon name="{{ isCollected ? 'star' : 'star-o' }}" size="40rpx" color="{{ isCollected ? '#ffd21e' : '#666' }}" />
+        <text>{{isCollected ? '已收藏' : '收藏'}}</text>
+      </button>
+      <button class="btn-apply" bindtap="applyDemand">立即申请</button>
+    </view>
+  </view>
+</view> 

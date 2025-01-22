@@ -1,0 +1,407 @@
+.container {
+  min-height: 100vh;
+  background: #f7f8fa;
+}
+
+/* 顶部搜索区域 */
+.header {
+  background: #fff;
+  padding: 20rpx 30rpx;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.location text {
+  font-size: 32rpx;
+  color: #333;
+  margin: 0 10rpx;
+}
+
+/* 导航区域 */
+.nav-section {
+  background: #fff;
+  margin: 20rpx;
+  padding: 20rpx 0;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+/* 轮播图 */
+.banner {
+  margin: 20rpx;
+  height: 300rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.banner swiper {
+  height: 100%;
+  border-radius: 12rpx;
+}
+
+.banner-item {
+  position: relative;
+  height: 100%;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.banner-item image {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+}
+
+.banner-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20rpx;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: #fff;
+  border-radius: 0 0 12rpx 12rpx;
+}
+
+.banner-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.banner-desc {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+/* 通用section样式 */
+.section-header {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.section-header .title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.section-header .count {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 12rpx;
+}
+
+.section-header .more {
+  margin-left: auto;
+  font-size: 24rpx;
+  color: #1890ff;
+}
+
+/* 行业分类 */
+.category-section {
+  background: #fff;
+  margin: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.category-list {
+  display: flex;
+  padding: 20rpx;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-item {
+  flex: none;
+  width: 280rpx;
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.1);
+}
+
+.category-item:last-child {
+  margin-right: 0;
+}
+
+.category-item image {
+  width: 100%;
+  height: 160rpx;
+  border-radius: 8rpx 8rpx 0 0;
+}
+
+.category-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 16rpx;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: #fff;
+  border-radius: 0 0 8rpx 8rpx;
+}
+
+.category-info .name {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 4rpx;
+}
+
+.category-info .count {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+/* 飞手列表 */
+.pilot-section {
+  background: #fff;
+  margin: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.pilot-list {
+  padding: 0 20rpx;
+}
+
+.pilot-item {
+  display: flex;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.pilot-item:last-child {
+  border-bottom: none;
+}
+
+.pilot-item .avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.pilot-info {
+  flex: 1;
+}
+
+.pilot-name {
+  font-size: 30rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.pilot-tags {
+  margin-bottom: 12rpx;
+}
+
+.pilot-tags .tag {
+  display: inline-block;
+  padding: 4rpx 12rpx;
+  background: #f0f9ff;
+  color: #1890ff;
+  font-size: 24rpx;
+  border-radius: 4rpx;
+  margin-right: 12rpx;
+}
+
+.pilot-tags .experience {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.pilot-desc {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 12rpx;
+}
+
+.pilot-location {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.pilot-location van-icon {
+  margin-right: 8rpx;
+}
+
+/* 设备租赁 */
+.rental-section {
+  background: #fff;
+  margin: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.rental-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  padding: 20rpx;
+}
+
+.rental-item {
+  border-radius: 8rpx;
+  overflow: hidden;
+  background: #f9f9f9;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.1);
+}
+
+.rental-item image {
+  width: 100%;
+  height: 200rpx;
+  border-radius: 8rpx 8rpx 0 0;
+}
+
+.rental-info {
+  padding: 16rpx;
+}
+
+.rental-name {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.rental-price {
+  color: #f5222d;
+}
+
+.rental-price .amount {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.rental-price .unit {
+  font-size: 24rpx;
+}
+
+/* 课程列表 */
+.course-section {
+  background: #fff;
+  margin: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.course-list {
+  padding: 20rpx;
+}
+
+.course-item {
+  display: flex;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.course-item:last-child {
+  border-bottom: none;
+}
+
+.course-item image {
+  width: 200rpx;
+  height: 120rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+
+.course-info {
+  flex: 1;
+}
+
+.course-title {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.course-provider {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+}
+
+.course-students {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 发布按钮 */
+.publish-btn {
+  position: fixed !important;
+  right: 30rpx !important;
+  bottom: 100rpx !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 20rpx 32rpx !important;
+  box-shadow: 0 4rpx 16rpx rgba(24,144,255,0.35) !important;
+}
+
+.publish-btn image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-bottom: 8rpx;
+}
+
+.publish-btn text {
+  font-size: 24rpx;
+}
+
+.publish-button {
+  width: 100rpx;
+  height: 100rpx;
+  background: linear-gradient(to right, #FF6B00, #FF9B00);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -30rpx;
+}
+
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+  padding: 30rpx;
+  background: #fff;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx 20rpx;
+  border-radius: 12rpx;
+  transition: all 0.3s;
+}
+
+.nav-item:active {
+  opacity: 0.8;
+}
+
+.nav-item text {
+  font-size: 26rpx;
+  margin-top: 16rpx;
+}
+
+.content {
+  margin-top: 20rpx;
+  padding: 0 30rpx;
+} 

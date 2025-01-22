@@ -1,0 +1,74 @@
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search-bar">
+    <van-search
+      value="{{ searchValue }}"
+      placeholder="搜索需求、服务、课程"
+      focus="{{true}}"
+      show-action
+      bind:change="onSearch"
+      bind:search="onSearch"
+      bind:cancel="onCancel"
+    />
+  </view>
+
+  <!-- 搜索历史 -->
+  <view class="section" wx:if="{{!searchValue && history.length > 0}}">
+    <view class="section-header">
+      <text class="title">搜索历史</text>
+      <view class="clear" bindtap="clearHistory">
+        <van-icon name="delete" />
+        <text>清空历史</text>
+      </view>
+    </view>
+    <view class="tag-list">
+      <view 
+        class="tag" 
+        wx:for="{{history}}" 
+        wx:key="*this"
+        bindtap="onTagTap"
+        data-keyword="{{item}}"
+      >{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 热门搜索 -->
+  <view class="section" wx:if="{{!searchValue}}">
+    <view class="section-header">
+      <text class="title">热门搜索</text>
+    </view>
+    <view class="tag-list">
+      <view 
+        class="tag" 
+        wx:for="{{hotKeywords}}" 
+        wx:key="*this"
+        bindtap="onTagTap"
+        data-keyword="{{item}}"
+      >{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 搜索结果 -->
+  <view class="search-result" wx:if="{{searchValue}}">
+    <van-empty wx:if="{{results.length === 0}}" description="暂无搜索结果" />
+    <view class="result-list" wx:else>
+      <view 
+        class="result-item"
+        wx:for="{{results}}"
+        wx:key="id"
+        bindtap="onResultTap"
+        data-item="{{item}}"
+      >
+        <image src="{{item.image}}" mode="aspectFill" />
+        <view class="info">
+          <view class="title">{{item.title}}</view>
+          <view class="desc">{{item.description}}</view>
+          <view class="meta">
+            <text class="type">{{item.type}}</text>
+            <text class="price" wx:if="{{item.price}}">¥{{item.price}}起</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

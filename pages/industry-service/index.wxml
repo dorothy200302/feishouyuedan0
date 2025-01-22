@@ -1,0 +1,80 @@
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search-bar">
+    <van-search
+      value="{{ searchValue }}"
+      placeholder="搜索需求、服务、课程"
+      bind:change="onSearch"
+      shape="round"
+    />
+  </view>
+
+  <!-- 服务分类标签页 -->
+  <van-tabs 
+    active="{{ activeTab }}" 
+    bind:change="onTabChange"
+    sticky
+    swipeable
+    animated
+  >
+    <van-tab 
+      wx:for="{{ categories }}" 
+      wx:key="id" 
+      title="{{ item.name }}"
+    >
+      <!-- 优秀服务商 -->
+      <view class="section">
+        <view class="section-header">
+          <text class="section-title">优秀服务商</text>
+          <text class="more">滑动查看</text>
+        </view>
+        <scroll-view scroll-x class="provider-scroll">
+          <view class="provider-list">
+            <view class="provider-item" wx:for="{{ providers }}" wx:key="id">
+              <image class="provider-logo" src="{{ item.logo }}" mode="aspectFit"/>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+
+      <!-- 服务列表 -->
+      <view class="section">
+        <view class="section-header">
+          <text class="section-title">服务内容</text>
+          <text class="service-count">(共{{ services.length }}个)</text>
+          <view class="filter">
+            <text>筛选</text>
+            <van-icon name="filter-o" />
+          </view>
+        </view>
+        <view class="service-list">
+          <view class="service-item" 
+            wx:for="{{ services }}" 
+            wx:key="id"
+            bindtap="onServiceTap"
+            data-id="{{ item.id }}"
+          >
+            <image class="service-image" src="{{ item.image }}" mode="aspectFill"/>
+            <view class="service-content">
+              <view class="service-title">{{ item.title }}</view>
+              <view class="service-price">
+                <text class="price">¥{{ item.price }}</text>
+                <text class="unit">{{ item.unit }}</text>
+              </view>
+              <view class="service-provider">
+                <image class="provider-avatar" src="https://via.placeholder.com/40" mode="aspectFit"/>
+                <text>{{ item.provider }}</text>
+              </view>
+              <view class="service-footer">
+                <view class="order-count">已接{{ item.orders }}单</view>
+                <view class="tags">
+                  <text class="tag" wx:for="{{ item.tags }}" wx:key="*this">{{ item }}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view> 

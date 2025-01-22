@@ -1,0 +1,14 @@
+{
+  "name": "pilot-order",
+  "version": "1.0.0",
+  "description": "A WeChat Mini Program for drone pilots",
+  "main": "app.js",
+  "scripts": {
+    "dev": "npm run build:npm && npm run build:dev",
+    "build:npm": "npm install && node ./node_modules/@vant/weapp/build.js",
+    "build:dev": "cross-env NODE_ENV=development webpack --config build/webpack.config.js"
+  },
+  "dependencies": {
+    "@vant/weapp": "^1.11.1"
+  }
+}

@@ -1,0 +1,239 @@
+.container {
+  background: #f6f6f6;
+  min-height: 100vh;
+  padding-bottom: 120rpx;
+}
+
+/* 搜索栏样式 */
+.search-header {
+  background: #fff;
+  padding: 20rpx 30rpx;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #f6f6f6;
+  padding: 16rpx 24rpx;
+  border-radius: 8rpx;
+}
+
+.search-bar icon {
+  margin-right: 12rpx;
+  color: #999;
+}
+
+.search-bar input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.search-placeholder {
+  color: #999;
+}
+
+/* 需求类型选择 */
+.demand-types {
+  display: flex;
+  background: #fff;
+  padding: 20rpx 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.type-item {
+  flex: 1;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+  padding: 16rpx 0;
+  position: relative;
+}
+
+.type-item.active {
+  color: #1AAD19;
+  font-weight: bold;
+}
+
+.type-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 4rpx;
+  background: #1AAD19;
+  border-radius: 2rpx;
+}
+
+/* 需求列表 */
+.demand-list {
+  padding: 0 30rpx;
+}
+
+.demand-item {
+  background: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+}
+
+.demand-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.demand-type {
+  font-size: 24rpx;
+  color: #1AAD19;
+  border: 1rpx solid #1AAD19;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+}
+
+.demand-status {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.demand-status.ongoing {
+  color: #ff4d4f;
+}
+
+.demand-content {
+  margin-bottom: 30rpx;
+}
+
+.demand-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.demand-desc {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.demand-meta {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.meta-item {
+  margin-right: 40rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.meta-item .label {
+  color: #666;
+}
+
+.demand-price {
+  margin-bottom: 20rpx;
+}
+
+.demand-price .price {
+  font-size: 36rpx;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.demand-price .unit {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 8rpx;
+}
+
+.demand-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #eee;
+}
+
+.company-info {
+  display: flex;
+  align-items: center;
+}
+
+.company-info image {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 24rpx;
+  margin-right: 12rpx;
+}
+
+.company-info text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20rpx;
+}
+
+.action-buttons button {
+  margin: 0;
+  padding: 0 32rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 28rpx;
+  border-radius: 32rpx;
+}
+
+.btn-detail {
+  color: #666;
+  background: #f6f6f6;
+}
+
+.btn-apply {
+  color: #fff;
+  background: #1AAD19;
+}
+
+/* 悬浮按钮 */
+.float-button {
+  position: fixed;
+  right: 30rpx;
+  bottom: 100rpx;
+  display: flex;
+  align-items: center;
+  background: #1AAD19;
+  color: #fff;
+  padding: 20rpx 32rpx;
+  border-radius: 32rpx;
+  box-shadow: 0 4rpx 16rpx rgba(26,173,25,0.4);
+}
+
+.float-button image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 8rpx;
+}
+
+.float-button text {
+  font-size: 28rpx;
+}
+
+/* 加载更多 */
+.loading-more, .no-more {
+  text-align: center;
+  padding: 30rpx;
+  color: #999;
+  font-size: 24rpx;
+} 

@@ -1,0 +1,37 @@
+<view class="container">
+  <!-- 订单类型选项卡 -->
+  <van-tabs active="{{ activeTab }}" bind:change="onTabChange" color="#FF6B00">
+    <van-tab title="全部"></van-tab>
+    <van-tab title="待付款"></van-tab>
+    <van-tab title="进行中"></van-tab>
+    <van-tab title="已完成"></van-tab>
+  </van-tabs>
+
+  <!-- 订单列表 -->
+  <view class="order-list">
+    <view class="order-item" wx:for="{{ orders }}" wx:key="id" bindtap="onOrderTap" data-id="{{item.id}}">
+      <view class="order-header">
+        <text class="order-type">{{ item.type }}</text>
+        <text class="order-status">{{ item.status }}</text>
+      </view>
+      <view class="order-content">
+        <image src="{{ item.image }}" mode="aspectFill" class="order-image"/>
+        <view class="order-info">
+          <view class="order-title">{{ item.title }}</view>
+          <view class="order-desc">{{ item.description }}</view>
+          <view class="order-price">
+            <text class="price">¥{{ item.price }}</text>
+          </view>
+        </view>
+      </view>
+      <view class="order-footer">
+        <van-button wx:if="{{item.status === '待付款'}}" type="danger" size="small" round>立即付款</van-button>
+        <van-button wx:if="{{item.status === '进行中'}}" type="primary" size="small" round>查看进度</van-button>
+        <van-button wx:if="{{item.status === '已完成'}}" type="default" size="small" round>评价订单</van-button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <van-empty wx:if="{{ orders.length === 0 }}" description="暂无订单" />
+</view> 

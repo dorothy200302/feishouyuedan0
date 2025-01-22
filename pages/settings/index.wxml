@@ -1,0 +1,37 @@
+<!--pages/settings/index.wxml-->
+<view class="container">
+  <view class="settings-list">
+    <!-- 账号设置 -->
+    <view class="settings-group">
+      <view class="settings-item" bindtap="onAccountSetting">
+        <text>账号设置</text>
+        <van-icon name="arrow" color="#999" size="32rpx" />
+      </view>
+      <view class="settings-item" bindtap="onNotificationSetting">
+        <text>消息通知</text>
+        <van-icon name="arrow" color="#999" size="32rpx" />
+      </view>
+      <view class="settings-item" bindtap="onPrivacySetting">
+        <text>隐私设置</text>
+        <van-icon name="arrow" color="#999" size="32rpx" />
+      </view>
+    </view>
+
+    <!-- 通用设置 -->
+    <view class="settings-group">
+      <view class="settings-item">
+        <text>清除缓存</text>
+        <text class="cache-size">{{cacheSize}}</text>
+      </view>
+      <view class="settings-item">
+        <text>当前版本</text>
+        <text class="version">{{version}}</text>
+      </view>
+    </view>
+
+    <!-- 退出登录 -->
+    <view class="logout-btn" bindtap="onLogout" wx:if="{{isLoggedIn}}">
+      退出登录
+    </view>
+  </view>
+</view> 

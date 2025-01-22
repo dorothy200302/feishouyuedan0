@@ -1,0 +1,69 @@
+<view class="container">
+  <!-- 设备图片 -->
+  <view class="device-images">
+    <swiper indicator-dots autoplay circular>
+      <swiper-item wx:for="{{device.images}}" wx:key="*this">
+        <image src="{{item}}" mode="aspectFill" />
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 设备信息 -->
+  <view class="device-info">
+    <view class="device-header">
+      <view class="device-name">{{device.name}}</view>
+      <view class="device-price">
+        <text class="price">¥{{device.price}}</text>
+        <text class="unit">/{{device.unit}}起</text>
+      </view>
+    </view>
+    <view class="device-specs">{{device.specs}}</view>
+    <view class="device-terms">
+      <view class="term-item">
+        <text class="label">最少租期</text>
+        <text class="value">{{device.minDays}}天</text>
+      </view>
+      <view class="term-item">
+        <text class="label">押金</text>
+        <text class="value">¥{{device.deposit}}</text>
+      </view>
+      <view class="term-item">
+        <text class="label">取还方式</text>
+        <text class="value">{{device.deliveryType}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设备详情 -->
+  <view class="detail-section">
+    <view class="section-title">设备详情</view>
+    <view class="detail-content">
+      <view class="detail-item" wx:for="{{device.details}}" wx:key="title">
+        <text class="detail-label">{{item.title}}</text>
+        <text class="detail-value">{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 租赁须知 -->
+  <view class="notice-section">
+    <view class="section-title">租赁须知</view>
+    <view class="notice-list">
+      <view class="notice-item" wx:for="{{device.notices}}" wx:key="*this">
+        <van-icon name="success" color="#52c41a" size="32rpx" />
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <view class="contact-btn" bindtap="onContactTap">
+      <van-icon name="service-o" size="48rpx" />
+      <text>联系客服</text>
+    </view>
+    <view class="action-btns">
+      <van-button type="primary" size="large" color="#FF6B00" bind:click="onRentTap">立即租赁</van-button>
+    </view>
+  </view>
+</view> 

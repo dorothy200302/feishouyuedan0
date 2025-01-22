@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "行业服务生态",
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-icon": "@vant/weapp/icon/index"
+  }
+} 

@@ -1,0 +1,115 @@
+<view class="container">
+  <form bindsubmit="onSubmit">
+    <!-- 设备信息 -->
+    <view class="form-section">
+      <view class="section-title">基本信息</view>
+      <view class="form-item">
+        <text class="label">设备名称</text>
+        <input 
+          name="name"
+          placeholder="请输入设备名称"
+          value="{{form.name}}"
+        />
+      </view>
+      <view class="form-item">
+        <text class="label">设备类型</text>
+        <picker 
+          mode="selector" 
+          range="{{categories}}" 
+          range-key="name"
+          bindchange="onCategoryChange"
+        >
+          <view class="picker">
+            {{form.category || '请选择设备类型'}}
+            <van-icon name="arrow" />
+          </view>
+        </picker>
+      </view>
+      <view class="form-item">
+        <text class="label">设备图片</text>
+        <view class="image-uploader">
+          <view 
+            class="image-item" 
+            wx:for="{{form.images}}" 
+            wx:key="*this"
+            bindtap="onPreviewImage"
+            data-url="{{item}}"
+          >
+            <image src="{{item}}" mode="aspectFill" />
+            <view class="delete-btn" catchtap="onDeleteImage" data-index="{{index}}">
+              <van-icon name="cross" />
+            </view>
+          </view>
+          <view class="upload-btn" bindtap="onChooseImage" wx:if="{{form.images.length < 9}}">
+            <van-icon name="plus" size="48rpx" color="#999" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 租赁信息 -->
+    <view class="form-section">
+      <view class="section-title">租赁信息</view>
+      <view class="form-item">
+        <text class="label">日租金</text>
+        <input 
+          name="price"
+          type="digit"
+          placeholder="请输入日租金"
+          value="{{form.price}}"
+        />
+        <text class="unit">元/天</text>
+      </view>
+      <view class="form-item">
+        <text class="label">押金</text>
+        <input 
+          name="deposit"
+          type="digit"
+          placeholder="请输入押金金额"
+          value="{{form.deposit}}"
+        />
+        <text class="unit">元</text>
+      </view>
+      <view class="form-item">
+        <text class="label">最少租期</text>
+        <input 
+          name="minDays"
+          type="number"
+          placeholder="请输入最少租期"
+          value="{{form.minDays}}"
+        />
+        <text class="unit">天</text>
+      </view>
+    </view>
+
+    <!-- 设备详情 -->
+    <view class="form-section">
+      <view class="section-title">设备详情</view>
+      <view class="form-item">
+        <text class="label">规格参数</text>
+        <textarea 
+          name="specs"
+          placeholder="请输入设备规格参数"
+          value="{{form.specs}}"
+          maxlength="200"
+          auto-height
+        />
+      </view>
+      <view class="form-item">
+        <text class="label">设备描述</text>
+        <textarea 
+          name="description"
+          placeholder="请输入设备描述"
+          value="{{form.description}}"
+          maxlength="500"
+          auto-height
+        />
+      </view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <view class="submit-bar">
+      <button form-type="submit" type="primary" color="#FF6B00">发布共享</button>
+    </view>
+  </form>
+</view> 
