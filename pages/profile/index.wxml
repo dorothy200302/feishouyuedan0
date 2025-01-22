@@ -19,18 +19,24 @@
   </view>
 
   <!-- 服务菜单 -->
-  <view class="menu-section">
-    <view class="menu-item" data-type="setting" bindtap="onMenuTap">
-      <van-icon name="setting-o" color="#1890ff" size="48rpx" />
-      <text>设置</text>
-    </view>
-    <view class="menu-item" data-type="service" bindtap="onMenuTap">
-      <van-icon name="service-o" color="#52c41a" size="48rpx" />
-      <text>客服</text>
-    </view>
-    <view class="menu-item" data-type="about" bindtap="onMenuTap">
-      <van-icon name="info-o" color="#722ed1" size="48rpx" />
-      <text>关于</text>
-    </view>
-  </view>
+  <van-grid border="{{ false }}" column-num="3">
+    <van-grid-item
+      icon="setting-o"
+      text="设置"
+      bind:click="onMenuTap"
+      data-type="setting"
+    />
+    <van-grid-item
+      icon="service-o"
+      text="客服"
+      bind:click="onMenuTap"
+      data-type="service"
+    />
+    <van-grid-item
+      icon="info-o"
+      text="关于"
+      bind:click="onMenuTap"
+      data-type="about"
+    />
+  </van-grid>
 </view>

@@ -1,7 +1,9 @@
 <!--pages/about/index.wxml-->
 <view class="container">
   <view class="logo-section">
-    <image class="logo" src="/assets/images/logo.png" mode="aspectFit"></image>
+    <view class="logo-wrapper">
+      <van-icon name="shop" size="80rpx" color="#FF6B00" />
+    </view>
     <view class="app-name">飞手约单</view>
     <view class="version">Version {{version}}</view>
   </view>

@@ -14,10 +14,16 @@
   margin: 60rpx 0;
 }
 
-.logo {
+.logo-wrapper {
   width: 160rpx;
   height: 160rpx;
   margin-bottom: 30rpx;
+  background: #fff;
+  border-radius: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
 }
 
 .app-name {

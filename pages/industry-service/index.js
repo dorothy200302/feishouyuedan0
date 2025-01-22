@@ -59,11 +59,31 @@ Page({
         rating: 4.6,
         tags: ['定制服务']
       }
+    ],
+    merchants: [
+      { id: 1, logo: '/static/images/merchants/mmc.png' },
+      { id: 2, logo: '/static/images/merchants/ceoair.png' },
+      { id: 3, logo: '/static/images/merchants/merchant3.png' },
+      { id: 4, logo: '/static/images/merchants/merchant4.png' },
+      { id: 5, logo: '/static/images/merchants/merchant5.png' },
+      { id: 6, logo: '/static/images/merchants/merchant6.png' }
+    ],
+    services: [
+      { id: 1, image: '/static/images/services/service1.jpg' },
+      { id: 2, image: '/static/images/services/service2.jpg' },
+      { id: 3, image: '/static/images/services/service3.jpg' },
+      { id: 4, image: '/static/images/services/service4.jpg' }
     ]
   },
 
   onLoad() {
     this.loadServices()
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1
+      })
+    }
   },
 
   onShow() {
@@ -95,9 +115,28 @@ Page({
   },
 
   onServiceTap(e) {
-    const { id } = e.currentTarget.dataset
+    const type = e.currentTarget.dataset.type
     wx.navigateTo({
-      url: `/pages/service-detail/index?id=${id}`
+      url: `/pages/service-detail/index?type=${type}`
+    })
+  },
+
+  onMoreTap() {
+    wx.showToast({
+      title: '更多功能开发中',
+      icon: 'none'
+    })
+  },
+
+  onApplyLeader() {
+    wx.navigateTo({
+      url: '/pages/apply-leader/index'
+    })
+  },
+
+  onApplyMerchant() {
+    wx.navigateTo({
+      url: '/pages/apply-merchant/index'
     })
   }
 }) 

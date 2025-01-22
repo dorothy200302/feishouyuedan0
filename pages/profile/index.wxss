@@ -104,4 +104,10 @@
 
 .menu-item van-icon {
   color: #999;
+}
+
+/* 自定义 van-grid 样式 */
+:host {
+  --grid-item-content-padding: 24rpx 0;
+  --grid-item-text-color: #333;
 } 

@@ -1,80 +1,158 @@
 <view class="container">
-  <!-- 搜索框 -->
-  <view class="search-bar">
-    <van-search
-      value="{{ searchValue }}"
-      placeholder="搜索需求、服务、课程"
-      bind:change="onSearch"
-      shape="round"
-    />
+  <!-- 航拍导航栏 -->
+  <view class="nav-header">
+    <view class="nav-title">航拍 ▼</view>
+    <view class="nav-more">更多 ></view>
   </view>
 
-  <!-- 服务分类标签页 -->
-  <van-tabs 
-    active="{{ activeTab }}" 
-    bind:change="onTabChange"
-    sticky
-    swipeable
-    animated
-  >
-    <van-tab 
-      wx:for="{{ categories }}" 
-      wx:key="id" 
-      title="{{ item.name }}"
-    >
-      <!-- 优秀服务商 -->
-      <view class="section">
-        <view class="section-header">
-          <text class="section-title">优秀服务商</text>
-          <text class="more">滑动查看</text>
+  <!-- 顶部服务展示区 -->
+  <view class="top-section">
+    <!-- 左侧大图 -->
+    <view class="main-card">
+      <image src="/static/images/services/team-building.jpg" mode="aspectFill"></image>
+      <view class="card-info">
+        <view class="card-title">团建拓展</view>
+        <view class="card-desc">查看更多 ></view>
+      </view>
+    </view>
+    <!-- 右侧两个小卡片 -->
+    <view class="side-cards">
+      <view class="side-card">
+        <image src="/static/images/services/sports-meeting.jpg" mode="aspectFill"></image>
+        <view class="card-info">
+          <view class="card-title">运动会</view>
+          <view class="card-desc">查看更多 ></view>
         </view>
-        <scroll-view scroll-x class="provider-scroll">
-          <view class="provider-list">
-            <view class="provider-item" wx:for="{{ providers }}" wx:key="id">
-              <image class="provider-logo" src="{{ item.logo }}" mode="aspectFit"/>
-            </view>
+      </view>
+      <view class="side-card">
+        <image src="/static/images/services/opening-ceremony.jpg" mode="aspectFill"></image>
+        <view class="card-info">
+          <view class="card-title">开学典礼</view>
+          <view class="card-desc">查看更多 ></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 数据共享和申请区域 -->
+  <view class="middle-section">
+    <!-- 数据共享 -->
+    <view class="data-section">
+      <view class="pdf-tag">PDF</view>
+      <image src="/static/images/services/data-sharing.jpg" mode="aspectFill"></image>
+    </view>
+    <!-- 申请卡片 -->
+    <view class="apply-cards">
+      <view class="apply-card" bindtap="onApplyLeader">
+        <view class="apply-content">
+          <view class="apply-title">申请享飞联盟团长</view>
+          <view class="apply-desc">共享无人机服务蓝海商机</view>
+          <view class="apply-btn">立即申请</view>
+        </view>
+        <view class="apply-icon">👥</view>
+      </view>
+      <view class="apply-card" bindtap="onApplyMerchant">
+        <view class="apply-content">
+          <view class="apply-title">服务商入驻申请</view>
+          <view class="apply-desc">通过云享飞拓展更多业务渠道</view>
+          <view class="apply-btn">立即申请</view>
+        </view>
+        <view class="apply-icon">🏢</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 优秀服务商展示 -->
+  <view class="merchant-section">
+    <view class="section-header">
+      <text class="title">优秀服务商</text>
+      <text class="scroll-tip">滑动查看</text>
+    </view>
+    <scroll-view class="merchant-scroll" scroll-x="true">
+      <view class="merchant-item">
+        <image src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+      </view>
+      <view class="merchant-item">
+        <image src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+      </view>
+      <view class="merchant-item">
+        <image src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+      </view>
+      <view class="merchant-item">
+        <image src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+      </view>
+      <view class="merchant-item">
+        <image src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 服务内容列表 -->
+  <view class="service-list">
+    <view class="section-header">
+      <view class="title-wrap">
+        <text class="title">服务内容</text>
+        <text class="count">(共153个)</text>
+      </view>
+      <view class="filter">
+        <text>筛选</text>
+        <van-icon name="arrow-down" size="28rpx" color="#666" />
+      </view>
+    </view>
+
+    <view class="service-grid">
+      <!-- 执法辅助 -->
+      <view class="service-item">
+        <view class="pdf-tag">PDF</view>
+        <image src="/static/images/categories/construction.jpg" mode="aspectFill"></image>
+        <view class="service-info">
+          <view class="service-title">执法辅助</view>
+          <view class="service-price">
+            <text class="price">¥500</text>
+            <text class="unit">起/次</text>
           </view>
-        </scroll-view>
+          <view class="service-count">已接7292单</view>
+        </view>
       </view>
 
-      <!-- 服务列表 -->
-      <view class="section">
-        <view class="section-header">
-          <text class="section-title">服务内容</text>
-          <text class="service-count">(共{{ services.length }}个)</text>
-          <view class="filter">
-            <text>筛选</text>
-            <van-icon name="filter-o" />
+      <!-- 运动会 -->
+      <view class="service-item">
+        <image src="/static/images/categories/construction.jpg" mode="aspectFill"></image>
+        <view class="service-info">
+          <view class="service-title">运动会</view>
+          <view class="service-price">
+            <text class="price">¥600</text>
+            <text class="unit">起/次</text>
           </view>
-        </view>
-        <view class="service-list">
-          <view class="service-item" 
-            wx:for="{{ services }}" 
-            wx:key="id"
-            bindtap="onServiceTap"
-            data-id="{{ item.id }}"
-          >
-            <image class="service-image" src="{{ item.image }}" mode="aspectFill"/>
-            <view class="service-content">
-              <view class="service-title">{{ item.title }}</view>
-              <view class="service-price">
-                <text class="price">¥{{ item.price }}</text>
-                <text class="unit">{{ item.unit }}</text>
-              </view>
-              <view class="service-provider">
-                <image class="provider-avatar" src="https://via.placeholder.com/40" mode="aspectFit"/>
-                <text>{{ item.provider }}</text>
-              </view>
-              <view class="service-footer">
-                <view class="order-count">已接{{ item.orders }}单</view>
-                <view class="tags">
-                  <text class="tag" wx:for="{{ item.tags }}" wx:key="*this">{{ item }}</text>
-                </view>
-              </view>
-            </view>
-          </view>
+          <view class="service-count">已接5905单</view>
         </view>
       </view>
-    </van-tab>
-  </van-tabs>
+
+      <!-- 地块勘察 -->
+      <view class="service-item">
+        <image src="/static/images/categories/construction.jpg" mode="aspectFill"></image>
+        <view class="service-info">
+          <view class="service-title">地块勘察</view>
+          <view class="service-price">
+            <text class="price">¥800</text>
+            <text class="unit">起/次</text>
+          </view>
+          <view class="service-count">已接8604单</view>
+        </view>
+      </view>
+
+      <!-- 其他 -->
+      <view class="service-item">
+        <image src="/static/images/categories/construction.jpg" mode="aspectFill"></image>
+        <view class="service-info">
+          <view class="service-title">其他</view>
+          <view class="service-price">
+            <text class="price">¥800</text>
+            <text class="unit">起/次</text>
+          </view>
+          <view class="service-count">已接2021单</view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view> 
