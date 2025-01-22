@@ -1,67 +1,80 @@
 <view class="container">
-  <!-- 顶部搜索区域 -->
-  <view class="header">
-    <van-search
-      value="{{ searchValue }}"
-      placeholder="搜索课程"
-      bind:change="onSearch"
-      shape="round"
-      background="#fff"
-    />
+  <!-- 圆形导航栏 -->
+  <view class="nav-grid">
+    <view class="nav-item" bindtap="onNavTap" data-type="caac">
+      <image class="nav-icon" src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+      <text>CAAC题库</text>
+    </view>
+    <view class="nav-item" bindtap="onNavTap" data-type="product">
+      <image class="nav-icon" src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+      <text>产品课程</text>
+    </view>
+    <view class="nav-item" bindtap="onNavTap" data-type="basic">
+      <image class="nav-icon" src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+      <text>基础知识库</text>
+    </view>
+    <view class="nav-item" bindtap="onNavTap" data-type="application">
+      <image class="nav-icon" src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+      <text>无人机应用课程</text>
+    </view>
   </view>
 
-  <!-- 分类导航 -->
-  <view class="category-nav">
-    <van-grid column-num="4" border="{{ false }}" gutter="{{ 10 }}">
-      <van-grid-item
-        wx:for="{{ categories }}"
-        wx:key="id"
-        icon="{{ item.icon }}"
-        text="{{ item.name }}"
-        bind:click="onTabChange"
-        data-index="{{ index }}"
-      />
-    </van-grid>
+  <!-- 考执照广告 -->
+  <view class="license-section">
+    <view class="license-content">
+      <text class="title">考执照</text>
+      <text class="subtitle">37家培训机构入驻</text>
+      <text class="location">苏州游鹰无人机技术</text>
+      <text class="distance">距你21.22km</text>
+    </view>
   </view>
 
-  <!-- 课程列表 -->
-  <view class="course-list">
-    <view 
-      class="course-item" 
-      wx:for="{{ courses }}" 
-      wx:key="id"
-      bindtap="onCourseTap"
-      data-id="{{ item.id }}"
-    >
-      <image class="course-image" src="{{ item.image }}" mode="aspectFill" />
-      <view class="course-info">
-        <view class="course-header">
-          <view class="course-title">{{ item.title }}</view>
-          <view class="course-tags">
-            <text class="tag" wx:for="{{ item.tags }}" wx:key="*this">{{ item }}</text>
-          </view>
-        </view>
-        
-        <view class="course-provider">
-          <image class="provider-logo" src="/static/images/providers/mmc.png" mode="aspectFit" />
-          <text>{{ item.provider }}</text>
-        </view>
+  <!-- 轮播图 -->
+  <view class="banner-section">
+    <swiper autoplay circular indicator-dots>
+      <swiper-item>
+        <image src="/static/images/banners/微信图片_20250122181204.png" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+  </view>
 
-        <view class="course-lessons">
-          <view class="lesson" wx:for="{{ item.lessons }}" wx:key="*this">{{ item }}</view>
-        </view>
-
-        <view class="course-footer">
-          <view class="students">
-            <van-icon name="friends-o" />
-            <text>{{ item.students }}人学习</text>
+  <!-- 推荐课程 -->
+  <view class="course-section">
+    <view class="section-header">
+      <text class="title">推荐课程</text>
+      <text class="provider">科比特航空</text>
+      <view class="more" bindtap="onMoreTap">更多 ></view>
+    </view>
+    <view class="course-list">
+      <view class="course-item" bindtap="onCourseTap" data-id="1">
+        <image class="course-image" src="/static/images/courses/course1.jpg" mode="aspectFill"></image>
+        <view class="course-info">
+          <view class="course-title">小旋风2系列教学视频</view>
+          <view class="course-subtitle">小旋风2系列教学视频</view>
+          <view class="course-meta">
+            <view class="provider-info">
+              <image class="provider-logo" src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+              <text>科比特航空</text>
+            </view>
+            <text class="student-count">978人已学习</text>
           </view>
-          <van-button 
-            type="primary" 
-            size="small" 
-            round 
-            color="#1890ff"
-          >立即学习</van-button>
+          <view class="course-tag">积分兑换</view>
+        </view>
+      </view>
+
+      <view class="course-item" bindtap="onCourseTap" data-id="2">
+        <image class="course-image" src="/static/images/courses/course2.jpg" mode="aspectFill"></image>
+        <view class="course-info">
+          <view class="course-title">塞天雷P3喊话器操作视频</view>
+          <view class="course-subtitle">塞天雷P3喊话器操作视频</view>
+          <view class="course-meta">
+            <view class="provider-info">
+              <image class="provider-logo" src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+              <text>科比特航空</text>
+            </view>
+            <text class="student-count">258人已学习</text>
+          </view>
+          <view class="course-tag free">免费</view>
         </view>
       </view>
     </view>

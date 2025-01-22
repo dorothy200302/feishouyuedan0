@@ -1,0 +1,150 @@
+.container {
+  height: 100vh;
+  background: #f7f8fa;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 搜索导航栏 */
+.search-header {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background: #ff6b00;
+  color: #fff;
+}
+
+.back-btn {
+  font-size: 32rpx;
+  margin-right: 20rpx;
+}
+
+.search-box {
+  flex: 1;
+}
+
+.more-btn, .scan-btn {
+  font-size: 40rpx;
+  padding: 0 20rpx;
+}
+
+/* 主体内容区 */
+.content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* 左侧类目栏 */
+.sidebar {
+  width: 180rpx;
+  background: #fff;
+  overflow-y: auto;
+}
+
+.sidebar-item {
+  padding: 30rpx 20rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+  border-left: 6rpx solid transparent;
+}
+
+.sidebar-item.active {
+  color: #ff6b00;
+  background: #fff7f2;
+  border-left-color: #ff6b00;
+}
+
+.sidebar-item .avatar {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 10rpx;
+}
+
+.highlight {
+  color: #ff6b00;
+  font-weight: 500;
+}
+
+/* 右侧内容区 */
+.main-content {
+  flex: 1;
+  padding: 20rpx;
+  overflow-y: auto;
+}
+
+.section {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-header .title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.section-header .more {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 品牌网格 */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20rpx;
+}
+
+.brand-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand-item image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+}
+
+.brand-item text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 产品网格 */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-item image {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 10rpx;
+}
+
+.product-item text {
+  font-size: 24rpx;
+  color: #333;
+  text-align: center;
+} 

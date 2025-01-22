@@ -1,0 +1,6 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index"
+  }
+} 

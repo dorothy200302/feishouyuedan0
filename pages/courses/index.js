@@ -37,7 +37,33 @@ Page({
         ]
       }
     ],
-    searchValue: ''
+    searchValue: '',
+    navItems: [
+      { type: 'caac', name: 'CAAC题库', icon: '/static/images/icons/caac.png' },
+      { type: 'product', name: '产品课程', icon: '/static/images/icons/product.png' },
+      { type: 'basic', name: '基础知识库', icon: '/static/images/icons/basic.png' },
+      { type: 'application', name: '无人机应用课程', icon: '/static/images/icons/application.png' }
+    ],
+    courses: [
+      {
+        id: 1,
+        title: '小旋风2系列教学视频',
+        subtitle: '小旋风2系列教学视频',
+        image: '/static/images/courses/course1.jpg',
+        provider: '科比特航空',
+        studentCount: 978,
+        type: 'points' // 积分兑换
+      },
+      {
+        id: 2,
+        title: '塞天雷P3喊话器操作视频',
+        subtitle: '塞天雷P3喊话器操作视频',
+        image: '/static/images/courses/course2.jpg',
+        provider: '科比特航空',
+        studentCount: 258,
+        type: 'free' // 免费
+      }
+    ]
   },
 
   onLoad() {
@@ -64,7 +90,31 @@ Page({
   onCourseTap(e) {
     const { id } = e.currentTarget.dataset
     wx.navigateTo({
-      url: `/pages/course-detail/index?id=${id}`
+      url: `/pages/courses/detail/index?id=${id}`
+    })
+  },
+
+  onNavTap(e) {
+    const { type } = e.currentTarget.dataset
+    switch(type) {
+      case 'caac':
+        wx.navigateTo({ url: '/pages/courses/caac/index' })
+        break
+      case 'product':
+        wx.navigateTo({ url: '/pages/courses/product/index' })
+        break
+      case 'basic':
+        wx.navigateTo({ url: '/pages/courses/basic/index' })
+        break
+      case 'application':
+        wx.navigateTo({ url: '/pages/courses/application/index' })
+        break
+    }
+  },
+
+  onMoreTap() {
+    wx.navigateTo({
+      url: '/pages/courses/list/index'
     })
   }
 }) 

@@ -1,0 +1,81 @@
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="nav-header">
+    <text class="title">飞手简历</text>
+    <view class="nav-actions">
+      <button class="share-btn" open-type="share">
+        <van-icon name="share" size="48rpx" />
+        <text>分享</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="user-info">
+    <view class="avatar-section">
+      <image class="avatar" src="/static/images/logos/mmc.png" mode="aspectFill"></image>
+      <view class="status-tags">
+        <text class="status-tag verified">已实名</text>
+        <text class="status-tag pilot">认证飞手</text>
+      </view>
+    </view>
+    <view class="info-section">
+      <view class="name-row">
+        <text class="name">云享飞用户_102444</text>
+      </view>
+      <view class="basic-info">
+        <text>赣州市</text>
+        <text class="dot">·</text>
+        <text>25岁</text>
+        <text class="dot">·</text>
+        <text>2年经验</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 简介 -->
+  <view class="section">
+    <view class="section-title">简介</view>
+    <view class="intro-content">
+      本人持有 CAAC 超视距执照，熟练操作各种型号无人机及航拍，吊运
+    </view>
+  </view>
+
+  <!-- 技能标签 -->
+  <view class="section">
+    <view class="section-title">技能标签</view>
+    <view class="skill-tags">
+      <text class="skill-tag">应急救援</text>
+      <text class="skill-tag">电力</text>
+    </view>
+  </view>
+
+  <!-- 业务案例 -->
+  <view class="section">
+    <view class="section-title">业务案例</view>
+    <view class="case-grid">
+      <view class="case-item">
+        <image src="/static/images/cases/case1.jpg" mode="aspectFill"></image>
+      </view>
+      <view class="case-item">
+        <image src="/static/images/cases/case2.jpg" mode="aspectFill"></image>
+      </view>
+      <view class="case-item">
+        <image src="/static/images/cases/case3.jpg" mode="aspectFill"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <button class="action-btn chat" bindtap="onChatTap">
+      <van-icon name="chat-o" />
+      <text>私信</text>
+    </button>
+    <button class="action-btn call" bindtap="onCallTap">
+      <van-icon name="phone-o" />
+      <text>联系飞手</text>
+    </button>
+    <button class="action-btn primary" bindtap="onAssignTap">派单给飞手</button>
+  </view>
+</view> 

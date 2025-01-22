@@ -1,0 +1,166 @@
+<view class="container">
+  <!-- 搜索导航栏 -->
+  <view class="search-header">
+    <view class="back-btn">出口产品</view>
+    <view class="search-box">
+      <van-search value="{{ searchValue }}" placeholder="科比特无人机" shape="round" />
+    </view>
+    <view class="more-btn">•••</view>
+    <view class="scan-btn">⭕</view>
+  </view>
+
+  <!-- 主体内容区 -->
+  <view class="content">
+    <!-- 左侧类目栏 -->
+    <view class="sidebar">
+      <view class="sidebar-item active">
+        <image class="avatar" src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+        <text>我的关注</text>
+      </view>
+      <view class="sidebar-item">
+        <text class="highlight">推荐</text>
+      </view>
+      <view class="sidebar-item">
+        <text>无人机</text>
+      </view>
+      <view class="sidebar-item">
+        <text>挂载</text>
+      </view>
+      <view class="sidebar-item">
+        <text>任务平台</text>
+      </view>
+      <view class="sidebar-item">
+        <text>软件</text>
+      </view>
+      <view class="sidebar-item">
+        <text>配件耗材</text>
+      </view>
+      <view class="sidebar-item">
+        <text>核心组件</text>
+      </view>
+      <view class="sidebar-item">
+        <text>增值服务</text>
+      </view>
+      <view class="sidebar-item">
+        <text>地面站</text>
+      </view>
+      <view class="sidebar-item">
+        <text>算法</text>
+      </view>
+      <view class="sidebar-item">
+        <text>反制设备</text>
+      </view>
+    </view>
+
+    <!-- 右侧内容区 -->
+    <view class="main-content">
+      <!-- 推荐品牌 -->
+      <view class="section">
+        <view class="section-header">
+          <text class="title">推荐品牌</text>
+          <text class="more">更多 ></text>
+        </view>
+        <view class="brand-grid">
+          <view class="brand-item">
+            <image src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+            <text>科比特航空</text>
+          </view>
+          <view class="brand-item">
+            <image src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+            <text>世纪南方</text>
+          </view>
+          <view class="brand-item">
+            <image src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+            <text>WOL</text>
+          </view>
+          <view class="brand-item">
+            <image src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+            <text>SprintLink</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 无人机 -->
+      <view class="section">
+        <view class="section-header">
+          <text class="title">无人机</text>
+          <text class="more">更多 ></text>
+        </view>
+        <view class="product-grid">
+          <view class="product-item">
+            <image src="/static/images/rentals/rental1.jpg" mode="aspectFit"></image>
+            <text>入云龙II</text>
+          </view>
+          <view class="product-item">
+            <image src="/static/images/rentals/rental2.jpg" mode="aspectFit"></image>
+            <text>小旋风II</text>
+          </view>
+          <view class="product-item">
+            <image src="/static/images/rentals/rental3.jpg" mode="aspectFit"></image>
+            <text>志翔Z1 Gen2-X4</text>
+          </view>
+          <view class="product-item">
+            <image src="/static/images/rentals/rental4.jpg" mode="aspectFit"></image>
+            <text>志翔Z1 Gen2-X8</text>
+          </view>
+          <view class="product-item">
+            <image src="/static/images/rentals/rental5.jpg" mode="aspectFit"></image>
+            <text>重载系留无人机系统</text>
+          </view>
+          <view class="product-item">
+            <image src="/static/images/rentals/rental6.jpg" mode="aspectFit"></image>
+            <text>轻型系留无人机系统</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 挂载 -->
+      <view class="section">
+        <view class="section-header">
+          <text class="title">挂载</text>
+          <text class="more">更多 ></text>
+        </view>
+        <view class="product-grid">
+          <view class="product-item">
+            <image src="/static/images/rentals/rental1.jpg" mode="aspectFit"></image>
+            <text>金眼魔Z60R</text>
+          </view>
+          <view class="product-item">
+            <image src="/static/images/rentals/rental2.jpg" mode="aspectFit"></image>
+            <text>白日鼠G6</text>
+          </view>
+          <view class="product-item">
+            <image src="/static/images/rentals/rental3.jpg" mode="aspectFit"></image>
+            <text>无人机基站</text>
+          </view>
+          <view class="product-item">
+            <image src="/static/images/rentals/rental4.jpg" mode="aspectFit"></image>
+            <text>INYYO 26P</text>
+          </view>
+          <view class="product-item">
+            <image src="/static/images/rentals/rental5.jpg" mode="aspectFit"></image>
+            <text>品灵30倍AI识别跟踪</text>
+          </view>
+          <view class="product-item">
+            <image src="/static/images/rentals/rental6.jpg" mode="aspectFit"></image>
+            <text>品灵30倍光学变焦</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 任务平台 -->
+      <view class="section">
+        <view class="section-header">
+          <text class="title">任务平台</text>
+          <text class="more">更多 ></text>
+        </view>
+        <view class="product-grid">
+          <view class="product-item">
+            <image src="/static/images/rentals/rental1.jpg" mode="aspectFit"></image>
+            <text>任务管理平台</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

@@ -1,12 +1,15 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/export/index",
     "pages/industry-service/index",
     "pages/demand-hall/index",
     "pages/courses/index",
     "pages/rental/index",
     "pages/emergency/index",
     "pages/rental-detail/index",
+    "pages/pilot-list/index",
+    "pages/pilot-detail/index",
     "pages/city-select/index",
     "pages/profile/index",
     "pages/settings/index",

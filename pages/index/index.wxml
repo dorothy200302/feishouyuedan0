@@ -154,6 +154,14 @@
     </view>
   </view>
 
+  <!-- 服务网格 -->
+  <view class="service-grid">
+    <view class="service-item" bindtap="onServiceTap" data-type="export">
+      <image src="/static/images/icons/export.png" mode="aspectFit"></image>
+      <text>出口产品</text>
+    </view>
+  </view>
+
   <!-- 发布按钮 -->
   <publish-button />
 </view>

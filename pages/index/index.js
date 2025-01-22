@@ -28,7 +28,7 @@ Page({
         id: 4,
         icon: 'gift-o',
         text: '出口产品',
-        url: '/pages/export-products/index',
+        url: '/pages/export/index',
         color: '#722ED1'
       },
       {
@@ -228,5 +228,31 @@ Page({
     wx.switchTab({
       url: routes[index]
     })
+  },
+
+  // 点击服务项
+  onServiceTap(e) {
+    const type = e.currentTarget.dataset.type;
+    let url = '';
+    
+    switch(type) {
+      case 'export':
+        url = '/pages/export/index';
+        break;
+      // ... other cases ...
+      default:
+        return;
+    }
+
+    wx.navigateTo({
+      url,
+      fail: (err) => {
+        console.error('导航失败：', err);
+        wx.showToast({
+          title: '页面跳转失败',
+          icon: 'none'
+        });
+      }
+    });
   }
 }) 
