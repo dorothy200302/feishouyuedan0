@@ -1,9 +1,15 @@
 <view class="container">
   <!-- 搜索导航栏 -->
   <view class="search-header">
-    <view class="back-btn">出口产品</view>
+    <van-icon name="arrow-left" size="44rpx" color="#fff" bindtap="onBackTap" />
     <view class="search-box">
-      <van-search value="{{ searchValue }}" placeholder="科比特无人机" shape="round" />
+      <van-search
+        value="{{ searchValue }}"
+        placeholder="搜索产品"
+        background="transparent"
+        bind:change="onSearchChange"
+        bind:search="onSearch"
+      />
     </view>
     <view class="more-btn">•••</view>
     <view class="scan-btn">⭕</view>

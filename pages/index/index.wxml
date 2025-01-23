@@ -154,6 +154,115 @@
     </view>
   </view>
 
+  <!-- 新闻资讯 -->
+  <view class="news-section">
+    <view class="news-item" bindtap="onNewsTap" data-id="1">
+      <view class="news-content">
+        <view class="news-title">重磅｜3亿无人机产业基金来袭！</view>
+        <view class="news-meta">
+          <text class="source">科比特｜科比特市场部</text>
+          <text class="time">2024-04-18 19:47:18</text>
+          <text class="views">阅读 853</text>
+        </view>
+      </view>
+      <image class="news-image" src="/static/images/news/fund.jpg" mode="aspectFill"></image>
+    </view>
+  </view>
+
+  <!-- 服务分类 -->
+  <view class="service-category">
+    <view class="category-card" bindtap="onCategoryTap" data-type="celebration">
+      <view class="category-icon">
+        <van-icon name="gift-o" size="48rpx" color="#FF6B00"/>
+      </view>
+      <view class="category-info">
+        <text class="name">庆典</text>
+        <text class="more">查看更多 ></text>
+      </view>
+    </view>
+    <view class="category-card" bindtap="onCategoryTap" data-type="self-driving">
+      <view class="category-icon" style="background: linear-gradient(135deg, #1890FF, #36CCCB)">
+        <van-icon name="logistics" size="48rpx" color="#fff"/>
+      </view>
+      <view class="category-info">
+        <text class="name">自驾游</text>
+        <text class="more">查看更多 ></text>
+      </view>
+    </view>
+    <view class="category-card" bindtap="onCategoryTap" data-type="wedding">
+      <view class="category-icon" style="background: linear-gradient(135deg, #FF4D94, #FF9B9B)">
+        <van-icon name="photo-o" size="48rpx" color="#fff"/>
+      </view>
+      <view class="category-info">
+        <text class="name">婚庆航拍</text>
+        <text class="more">查看更多 ></text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 企业动态 -->
+  <view class="company-news">
+    <view class="company-header">
+      <image class="company-logo" src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+      <view class="company-info">
+        <view class="company-name">天光航空航天科技-天光航天</view>
+        <view class="company-time">01-20 22:11</view>
+      </view>
+      <view class="contact-btn">私信</view>
+    </view>
+    <view class="company-content">
+      <view class="content-tags">
+        <text class="tag">#天光航空航天科技</text>
+        <text class="tag">#负载</text>
+        <text class="tag">#模块</text>
+      </view>
+      <view class="content-text">天光航空航天大厂 SLT-L01警示灯预告，大学生自主设计研发的...</view>
+      <view class="product-images">
+        <image src="/static/images/products/slt-l01-1.jpg" mode="aspectFill"></image>
+        <image src="/static/images/products/slt-l01-2.jpg" mode="aspectFill"></image>
+        <image src="/static/images/products/slt-l01-3.jpg" mode="aspectFill"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 企业案例 -->
+  <view class="company-case">
+    <view class="company-header">
+      <image class="company-logo" src="/static/images/logos/mmc.png" mode="aspectFit"></image>
+      <view class="company-info">
+        <view class="company-name">中测航空-调峰</view>
+        <view class="company-time">01-16 08:58</view>
+      </view>
+      <view class="contact-btn">私信</view>
+    </view>
+    <view class="company-content">
+      <view class="content-text">承接吊运飞防业务 欢迎新老朋友考察合作。</view>
+      <view class="case-images">
+        <image wx:for="{{9}}" wx:key="index" src="/static/images/cases/power-inspection-{{index + 1}}.jpg" mode="aspectFill"></image>
+      </view>
+      <view class="case-footer">
+        <view class="case-meta">
+          <text class="company-tag">电力巡检</text>
+          <text class="rating">⭐️⭐️⭐️⭐️½</text>
+        </view>
+        <view class="case-actions">
+          <view class="action-item">
+            <van-icon name="like-o" />
+            <text>7</text>
+          </view>
+          <view class="action-item">
+            <van-icon name="comment-o" />
+            <text>评论</text>
+          </view>
+          <view class="action-item">
+            <van-icon name="share-o" />
+            <text>分享</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
   <!-- 服务网格 -->
   <view class="service-grid">
     <view class="service-item" bindtap="onServiceTap" data-type="export">

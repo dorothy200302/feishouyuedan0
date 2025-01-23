@@ -1,4 +1,10 @@
 <view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="nav-header">
+    <van-icon name="arrow-left" size="44rpx" color="#333" bindtap="onBackTap" />
+    <text class="title">行业服务生态</text>
+  </view>
+
   <!-- 航拍导航栏 -->
   <view class="nav-header">
     <view class="nav-title">航拍 ▼</view>
