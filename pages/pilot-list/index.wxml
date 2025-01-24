@@ -65,100 +65,69 @@
     </swiper>
   </view>
 
-  <!-- 筛选栏 -->
-  <view class="filter-section">
-    <view class="filter-item" bindtap="onFilterTap" data-type="task">
-      <text>任务能力</text>
-      <van-icon name="arrow-down" size="24rpx" color="#999" />
-    </view>
-    <view class="filter-item" bindtap="onFilterTap" data-type="license">
-      <text>执照类型</text>
-      <van-icon name="arrow-down" size="24rpx" color="#999" />
-    </view>
-    <view class="filter-item" bindtap="onFilterTap" data-type="pilot">
-      <text>飞手类型</text>
-      <van-icon name="arrow-down" size="24rpx" color="#999" />
-    </view>
+  <!-- 顶部筛选栏 -->
+  <view class="filter-bar">
+    <picker mode="region" bindchange="onAreaChange" value="{{currentArea}}">
+      <view class="area-picker">
+        <text>{{currentArea}}</text>
+        <text class="iconfont icon-arrow-down"></text>
+      </view>
+    </picker>
+    
+    <scroll-view scroll-x class="task-types">
+      <view class="task-type-list">
+        <view 
+          wx:for="{{taskTypes}}" 
+          wx:key="id"
+          class="task-type-item {{currentTaskType === item.id ? 'active' : ''}}"
+          bindtap="onTaskTypeChange"
+          data-type="{{item.id}}"
+        >
+          {{item.name}}
+        </view>
+      </view>
+    </scroll-view>
   </view>
 
   <!-- 飞手列表 -->
-  <scroll-view class="pilot-list" scroll-y>
-    <view class="pilot-item" bindtap="onPilotTap" data-id="109650">
-      <view class="pilot-avatar">
-        <image src="/static/images/pilots/default-avatar.png" mode="aspectFill"></image>
-      </view>
+  <scroll-view scroll-y class="pilot-list">
+    <view 
+      wx:for="{{pilots}}" 
+      wx:key="id" 
+      class="pilot-card"
+      bindtap="navigateToPilotDetail"
+      data-id="{{item.id}}"
+    >
+      <image class="pilot-avatar" src="{{item.avatar || '/static/images/default-avatar.png'}}" mode="aspectFill"/>
       <view class="pilot-info">
         <view class="pilot-header">
-          <view class="pilot-name">云享飞用户_109650</view>
-          <view class="pilot-action">
-            <text class="action-btn">个人主页</text>
-          </view>
+          <text class="pilot-name">{{item.name}}</text>
+          <text class="pilot-rating">{{item.rating || 5}}分</text>
         </view>
-        <view class="pilot-location">苏州市 1年经验</view>
         <view class="pilot-tags">
-          <text class="tag">航拍</text>
+          <text class="tag" wx:if="{{item.experience}}">{{item.experience}}</text>
+          <text class="tag" wx:if="{{item.licenseType}}">{{item.licenseType}}</text>
+          <text class="tag" wx:for="{{item.taskTypes}}" wx:key="*this">{{item}}</text>
         </view>
-        <view class="pilot-device">自带设备：大疆御3pro</view>
+        <view class="pilot-equipment" wx:if="{{item.equipment}}">
+          <text class="label">设备:</text>
+          <text>{{item.equipment}}</text>
+        </view>
+        <view class="pilot-area">
+          <text class="label">服务区域:</text>
+          <text>{{item.serviceArea || item.area}}</text>
+        </view>
+        <view class="pilot-price" wx:if="{{item.hourlyRate}}">
+          <text class="price">¥{{item.hourlyRate}}</text>
+          <text class="unit">/小时</text>
+        </view>
       </view>
     </view>
-
-    <view class="pilot-item" bindtap="onPilotTap" data-id="2">
-      <view class="pilot-avatar">
-        <image src="/static/images/logos/mmc.png" mode="aspectFill"></image>
-      </view>
-      <view class="pilot-info">
-        <view class="pilot-header">
-          <view class="pilot-name">温良</view>
-          <view class="pilot-action">
-            <text class="action-btn">个人主页</text>
-          </view>
-        </view>
-        <view class="pilot-location">苏州市 2年经验</view>
-        <view class="pilot-tags">
-          <text class="tag">航拍</text>
-        </view>
-        <view class="pilot-desc">部队无人机飞手</view>
-      </view>
-    </view>
-
-    <view class="pilot-item">
-      <view class="pilot-avatar">
-        <image src="/static/images/logos/mmc.png" mode="aspectFill"></image>
-        <view class="pdf-tag">PDF</view>
-      </view>
-      <view class="pilot-info">
-        <view class="pilot-header">
-          <view class="pilot-name">可见~昆山</view>
-          <view class="pilot-action">
-            <text class="action-btn">个人主页</text>
-          </view>
-        </view>
-        <view class="pilot-location">苏州市 1年经验</view>
-        <view class="pilot-tags">
-          <text class="tag">航拍</text>
-        </view>
-        <view class="pilot-desc">新人无人机飞手，能吃苦，有责任心，能...</view>
-      </view>
-    </view>
-
-    <view class="pilot-item">
-      <view class="pilot-avatar">
-        <image src="/static/images/logos/mmc.png" mode="aspectFill"></image>
-      </view>
-      <view class="pilot-info">
-        <view class="pilot-header">
-          <view class="pilot-name">云享飞用户_91095</view>
-          <view class="pilot-action">
-            <text class="action-btn">个人主页</text>
-          </view>
-        </view>
-        <view class="pilot-location">苏州市 0年经验</view>
-        <view class="pilot-tags">
-          <text class="tag">公共安全</text>
-          <text class="tag">航拍</text>
-        </view>
-        <view class="pilot-desc">熟悉大疆经纬系列操作，有两年大疆M35...</view>
-      </view>
+    
+    <!-- 无数据提示 -->
+    <view class="empty-state" wx:if="{{pilots.length === 0}}">
+      <image src="/static/images/empty-state.png" mode="aspectFit"/>
+      <text>暂无符合条件的飞手</text>
     </view>
   </scroll-view>
 </view> 

@@ -1,33 +1,86 @@
+const { pilotApi } = require('../../utils/api');
+
 Page({
   data: {
-    pilot: {
-      id: '102444',
-      name: '云享飞用户_102444',
-      avatar: '/static/images/logos/mmc.png',
-      city: '赣州市',
-      age: 25,
-      experience: '2年经验',
-      isVerified: true,
-      isPilot: true,
-      intro: '本人持有 CAAC 超视距执照，熟练操作各种型号无人机及航拍，吊运',
-      skills: ['应急救援', '电力'],
-      cases: [
-        '/static/images/cases/case1.jpg',
-        '/static/images/cases/case2.jpg',
-        '/static/images/cases/case3.jpg'
-      ]
-    }
+    pilotId: '',
+    pilot: null,
+    activeTab: 0,
+    tabs: ['简介', '服务', '评价']
   },
 
   onLoad(options) {
-    const { id } = options
-    // TODO: 根据ID获取飞手详情
-    this.loadPilotDetail(id)
+    if (options.id) {
+      this.setData({ pilotId: options.id });
+      this.loadPilotDetail();
+    }
   },
 
-  loadPilotDetail(id) {
-    // TODO: 调用接口获取飞手详情
-    console.log('Loading pilot detail for ID:', id)
+  // 加载飞手详情
+  async loadPilotDetail() {
+    try {
+      wx.showLoading({ title: '加载中...' });
+      const pilot = await pilotApi.getPilotDetail(this.data.pilotId);
+      this.setData({ pilot });
+    } catch (error) {
+      console.error('加载飞手详情失败:', error);
+      wx.showToast({
+        title: '加载失败',
+        icon: 'none'
+      });
+    } finally {
+      wx.hideLoading();
+    }
+  },
+
+  // 切换标签页
+  onTabChange(e) {
+    const index = e.detail.index;
+    this.setData({ activeTab: index });
+  },
+
+  // 拨打电话
+  makePhoneCall() {
+    if (this.data.pilot && this.data.pilot.phone) {
+      wx.makePhoneCall({
+        phoneNumber: this.data.pilot.phone,
+        fail: (err) => {
+          wx.showToast({
+            title: '拨号失败',
+            icon: 'none'
+          });
+        }
+      });
+    }
+  },
+
+  // 复制微信号
+  copyWechat() {
+    if (this.data.pilot && this.data.pilot.wechat) {
+      wx.setClipboardData({
+        data: this.data.pilot.wechat,
+        success: () => {
+          wx.showToast({
+            title: '已复制微信号',
+            icon: 'success'
+          });
+        }
+      });
+    }
+  },
+
+  // 预约飞手
+  bookPilot() {
+    if (!this.data.pilot) return;
+    
+    wx.navigateTo({
+      url: `/pages/booking/index?pilotId=${this.data.pilotId}`,
+      fail: () => {
+        wx.showToast({
+          title: '页面跳转失败',
+          icon: 'none'
+        });
+      }
+    });
   },
 
   onShareAppMessage() {
@@ -43,35 +96,6 @@ Page({
     wx.showToast({
       title: '私信功能开发中',
       icon: 'none'
-    })
-  },
-
-  onCallTap() {
-    wx.showActionSheet({
-      itemList: ['拨打电话', '复制微信号'],
-      success: (res) => {
-        if (res.tapIndex === 0) {
-          wx.makePhoneCall({
-            phoneNumber: '10086', // TODO: 替换为实际电话号码
-            fail: () => {
-              wx.showToast({
-                title: '拨打电话失败',
-                icon: 'none'
-              })
-            }
-          })
-        } else {
-          wx.setClipboardData({
-            data: 'wx123456', // TODO: 替换为实际微信号
-            success: () => {
-              wx.showToast({
-                title: '微信号已复制',
-                icon: 'success'
-              })
-            }
-          })
-        }
-      }
     })
   },
 

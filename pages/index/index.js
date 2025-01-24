@@ -2,6 +2,8 @@ Page({
   data: {
     location: '苏州市',
     searchValue: '',
+    demands: [],
+
     navItems: [
       {
         id: 1,
@@ -123,7 +125,56 @@ Page({
         provider: '科比特航空'
       }
     ],
-    active: 0
+    active: 0,
+    news: {
+      id: 1,
+      title: '重磅｜3亿无人机产业基金来袭！',
+      source: '科比特｜科比特市场部',
+      time: '2024-04-18 19:47:18',
+      views: 853,
+      image: '/static/images/news/fund.jpg'
+    },
+    serviceCategories: [
+      {
+        type: 'celebration',
+        name: '庆典',
+        image: '/static/images/categories/celebration.jpg'
+      },
+      {
+        type: 'self-driving',
+        name: '自驾游',
+        image: '/static/images/categories/self-driving.jpg'
+      },
+      {
+        type: 'wedding',
+        name: '婚庆航拍',
+        image: '/static/images/categories/wedding.jpg'
+      }
+    ],
+    companyNews: {
+      id: 1,
+      company: '天光航空航天科技-天光航天',
+      logo: '/static/images/logos/mmc.png',
+      time: '01-20 22:11',
+      tags: ['天光航空航天科技', '负载', '模块'],
+      content: '天光航空航天大厂 SLT-L01警示灯预告，大学生自主设计研发的...',
+      images: [
+        '/static/images/products/slt-l01-1.jpg',
+        '/static/images/products/slt-l01-2.jpg',
+        '/static/images/products/slt-l01-3.jpg'
+      ]
+    },
+    companyCase: {
+      id: 1,
+      company: '中测航空-调峰',
+      logo: '/static/images/logos/mmc.png',
+      time: '01-16 08:58',
+      content: '承接吊运飞防业务 欢迎新老朋友考察合作。',
+      images: Array.from({length: 9}, (_, i) => `/static/images/cases/power-inspection-${i + 1}.jpg`),
+      tag: '电力巡检',
+      rating: 4.5,
+      likes: 7
+    }
   },
 
   onLoad() {
@@ -215,7 +266,22 @@ Page({
       url: `/pages/course-detail/index?id=${id}`
     })
   },
-
+ // 加载需求数据
+ async loadDemands() {
+  try {
+    wx.showLoading({ title: '加载中...' });
+    const demands = await demandApi.getAllDemands();
+    this.setData({ demands });
+  } catch (error) {
+    console.error('加载需求数据失败:', error);
+    wx.showToast({
+      title: '加载需求失败',
+      icon: 'none'
+    });
+  } finally {
+    wx.hideLoading();
+  }
+},
   onChange(event) {
     const index = event.detail
     const routes = [
@@ -253,6 +319,96 @@ Page({
           icon: 'none'
         });
       }
+    });
+  },
+
+  // 点击新闻
+  onNewsTap(e) {
+    const { id } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/news-detail/index?id=${id}`,
+      fail: (err) => {
+        console.error('导航失败：', err);
+        wx.showToast({
+          title: '页面跳转失败',
+          icon: 'none'
+        });
+      }
+    });
+  },
+
+  // 点击服务分类
+  onCategoryTap(e) {
+    const { type } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/service-list/index?type=${type}`,
+      fail: (err) => {
+        console.error('导航失败：', err);
+        wx.showToast({
+          title: '页面跳转失败',
+          icon: 'none'
+        });
+      }
+    });
+  },
+
+  // 点击私信按钮
+  onContactTap(e) {
+    const { company } = e.currentTarget.dataset;
+    wx.showToast({
+      title: `联系${company}`,
+      icon: 'none'
+    });
+  },
+
+  // 点击点赞
+  onLikeTap(e) {
+    const { id } = e.currentTarget.dataset;
+    // TODO: 实现点赞逻辑
+    wx.showToast({
+      title: '点赞成功',
+      icon: 'success'
+    });
+  },
+
+  // 点击评论
+  onCommentTap(e) {
+    const { id } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/comments/index?id=${id}`,
+      fail: (err) => {
+        console.error('导航失败：', err);
+        wx.showToast({
+          title: '页面跳转失败',
+          icon: 'none'
+        });
+      }
+    });
+  },
+   // 点击需求
+   onDemandTap(e) {
+    const { id } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/demand-detail/index?id=${id}`
+    });
+  },
+  onLocationTap() {
+    wx.navigateTo({
+      url: '/pages/city-select/index'
+    });
+  },
+
+  onSearchTap() {
+    wx.navigateTo({
+      url: '/pages/search/index'
+    });
+  },
+  // 点击分享
+  onShareTap(e) {
+    const { id } = e.currentTarget.dataset;
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline']
     });
   }
 }) 

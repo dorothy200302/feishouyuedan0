@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" wx:if="{{pilot}}">
   <!-- 顶部导航栏 -->
   <view class="nav-header">
     <text class="title">飞手简历</text>
@@ -11,71 +11,116 @@
   </view>
 
   <!-- 基本信息 -->
-  <view class="user-info">
-    <view class="avatar-section">
-      <image class="avatar" src="/static/images/logos/mmc.png" mode="aspectFill"></image>
-      <view class="status-tags">
-        <text class="status-tag verified">已实名</text>
-        <text class="status-tag pilot">认证飞手</text>
-      </view>
-    </view>
-    <view class="info-section">
+  <view class="header">
+    <image class="avatar" src="{{pilot.avatar || '/static/images/default-avatar.png'}}" mode="aspectFill"/>
+    <view class="info">
       <view class="name-row">
-        <text class="name">云享飞用户_102444</text>
+        <text class="name">{{pilot.name}}</text>
+        <text class="rating">{{pilot.rating || 5}}分</text>
       </view>
-      <view class="basic-info">
-        <text>赣州市</text>
-        <text class="dot">·</text>
-        <text>25岁</text>
-        <text class="dot">·</text>
-        <text>2年经验</text>
+      <view class="tags">
+        <text class="tag" wx:if="{{pilot.experience}}">{{pilot.experience}}</text>
+        <text class="tag" wx:if="{{pilot.licenseType}}">{{pilot.licenseType}}</text>
+        <text class="tag" wx:for="{{pilot.taskTypes}}" wx:key="*this">{{item}}</text>
       </view>
+      <view class="area">{{pilot.serviceArea || pilot.area}}</view>
     </view>
   </view>
 
-  <!-- 简介 -->
-  <view class="section">
-    <view class="section-title">简介</view>
-    <view class="intro-content">
-      本人持有 CAAC 超视距执照，熟练操作各种型号无人机及航拍，吊运
-    </view>
-  </view>
+  <!-- 标签页 -->
+  <van-tabs active="{{activeTab}}" bind:change="onTabChange" sticky>
+    <!-- 简介 -->
+    <van-tab title="简介">
+      <view class="section">
+        <view class="section-title">个人简介</view>
+        <view class="intro">{{pilot.introduction || '暂无简介'}}</view>
+      </view>
 
-  <!-- 技能标签 -->
-  <view class="section">
-    <view class="section-title">技能标签</view>
-    <view class="skill-tags">
-      <text class="skill-tag">应急救援</text>
-      <text class="skill-tag">电力</text>
-    </view>
-  </view>
+      <view class="section">
+        <view class="section-title">设备信息</view>
+        <view class="equipment">{{pilot.equipment || '暂无设备信息'}}</view>
+      </view>
 
-  <!-- 业务案例 -->
-  <view class="section">
-    <view class="section-title">业务案例</view>
-    <view class="case-grid">
-      <view class="case-item">
-        <image src="/static/images/cases/case1.jpg" mode="aspectFill"></image>
+      <view class="section" wx:if="{{pilot.certificates && pilot.certificates.length}}">
+        <view class="section-title">证书资质</view>
+        <view class="certificates">
+          <text wx:for="{{pilot.certificates}}" wx:key="*this" class="certificate">{{item}}</text>
+        </view>
       </view>
-      <view class="case-item">
-        <image src="/static/images/cases/case2.jpg" mode="aspectFill"></image>
+
+      <!-- 案例展示 -->
+      <view class="section" wx:if="{{pilot.cases && pilot.cases.length}}">
+        <view class="section-title">案例展示</view>
+        <view class="case-grid">
+          <view class="case-item" wx:for="{{pilot.cases}}" wx:key="*this">
+            <image src="/static/images/default-case.png" mode="aspectFill"/>
+          </view>
+        </view>
       </view>
-      <view class="case-item">
-        <image src="/static/images/cases/case3.jpg" mode="aspectFill"></image>
+    </van-tab>
+
+    <!-- 服务 -->
+    <van-tab title="服务">
+      <view class="section">
+        <view class="section-title">服务类型</view>
+        <view class="service-types">
+          <text wx:for="{{pilot.taskTypes}}" wx:key="*this" class="service-type">{{item}}</text>
+        </view>
       </view>
-    </view>
-  </view>
+
+      <view class="section">
+        <view class="section-title">收费标准</view>
+        <view class="price-info">
+          <text class="price">¥{{pilot.hourlyRate || '--'}}</text>
+          <text class="unit">/小时</text>
+        </view>
+      </view>
+
+      <view class="section">
+        <view class="section-title">服务区域</view>
+        <view class="service-area">{{pilot.serviceArea || pilot.area || '暂无服务区域信息'}}</view>
+      </view>
+    </van-tab>
+
+    <!-- 评价 -->
+    <van-tab title="评价">
+      <view class="reviews" wx:if="{{pilot.reviews && pilot.reviews.length}}">
+        <view wx:for="{{pilot.reviews}}" wx:key="id" class="review-item">
+          <view class="review-header">
+            <image class="reviewer-avatar" src="{{item.avatar || '/static/images/default-avatar.png'}}" mode="aspectFill"/>
+            <view class="reviewer-info">
+              <text class="reviewer-name">{{item.userName}}</text>
+              <text class="review-date">{{item.createTime}}</text>
+            </view>
+            <text class="review-rating">{{item.rating}}分</text>
+          </view>
+          <view class="review-content">{{item.content}}</view>
+        </view>
+      </view>
+      <view class="empty-state" wx:else>
+        <text>暂无评价</text>
+      </view>
+    </van-tab>
+  </van-tabs>
 
   <!-- 底部操作栏 -->
-  <view class="bottom-bar">
-    <button class="action-btn chat" bindtap="onChatTap">
-      <van-icon name="chat-o" />
-      <text>私信</text>
-    </button>
-    <button class="action-btn call" bindtap="onCallTap">
-      <van-icon name="phone-o" />
-      <text>联系飞手</text>
-    </button>
-    <button class="action-btn primary" bindtap="onAssignTap">派单给飞手</button>
+  <view class="footer">
+    <view class="contact-btns">
+      <button class="contact-btn" bindtap="makePhoneCall">
+        <van-icon name="phone-o" size="48rpx"/>
+        <text>电话</text>
+      </button>
+      <button class="contact-btn" bindtap="copyWechat">
+        <van-icon name="wechat" size="48rpx"/>
+        <text>微信</text>
+      </button>
+    </view>
+    <button class="book-btn" bindtap="bookPilot">立即预约</button>
   </view>
+</view>
+
+<!-- 加载中或错误状态 -->
+<view class="loading-state" wx:else>
+  <van-loading wx:if="{{!pilot && pilotId}}" type="spinner" color="#1890ff"/>
+  <text wx:else>飞手信息加载失败</text>
 </view> 
