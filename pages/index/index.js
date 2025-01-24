@@ -2,8 +2,6 @@ Page({
   data: {
     location: '苏州市',
     searchValue: '',
-    demands: [],
-
     navItems: [
       {
         id: 1,
@@ -266,22 +264,7 @@ Page({
       url: `/pages/course-detail/index?id=${id}`
     })
   },
- // 加载需求数据
- async loadDemands() {
-  try {
-    wx.showLoading({ title: '加载中...' });
-    const demands = await demandApi.getAllDemands();
-    this.setData({ demands });
-  } catch (error) {
-    console.error('加载需求数据失败:', error);
-    wx.showToast({
-      title: '加载需求失败',
-      icon: 'none'
-    });
-  } finally {
-    wx.hideLoading();
-  }
-},
+
   onChange(event) {
     const index = event.detail
     const routes = [
@@ -385,24 +368,7 @@ Page({
       }
     });
   },
-   // 点击需求
-   onDemandTap(e) {
-    const { id } = e.currentTarget.dataset;
-    wx.navigateTo({
-      url: `/pages/demand-detail/index?id=${id}`
-    });
-  },
-  onLocationTap() {
-    wx.navigateTo({
-      url: '/pages/city-select/index'
-    });
-  },
 
-  onSearchTap() {
-    wx.navigateTo({
-      url: '/pages/search/index'
-    });
-  },
   // 点击分享
   onShareTap(e) {
     const { id } = e.currentTarget.dataset;

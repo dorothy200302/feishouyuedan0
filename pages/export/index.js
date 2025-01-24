@@ -23,23 +23,23 @@ Page({
       { id: 'sprint', name: 'SprintLink', logo: '/static/images/logos/mmc.png' }
     ],
     drones: [
-      { id: 1, name: '入云龙II', image: '/static/images/rentals/rental1.jpg' },
-      { id: 2, name: '小旋风II', image: '/static/images/rentals/rental2.jpg' },
-      { id: 3, name: '志翔Z1 Gen2-X4', image: '/static/images/rentals/rental3.jpg' },
-      { id: 4, name: '志翔Z1 Gen2-X8', image: '/static/images/rentals/rental4.jpg' },
-      { id: 5, name: '重载系留无人机系统', image: '/static/images/rentals/rental5.jpg' },
+      { id: 1, name: '入云龙II', image: '/static/images/rentals/rental6.jpg' },
+      { id: 2, name: '小旋风II', image: '/static/images/rentals/rental6.jpg' },
+      { id: 3, name: '志翔Z1 Gen2-X4', image: '/static/images/rentals/rental6.jpg' },
+      { id: 4, name: '志翔Z1 Gen2-X8', image: '/static/images/rentals/rental6.jpg' },
+      { id: 5, name: '重载系留无人机系统', image: '/static/images/rentals/rental6.jpg' },
       { id: 6, name: '轻型系留无人机系统', image: '/static/images/rentals/rental6.jpg' }
     ],
     mounts: [
-      { id: 1, name: '金眼魔Z60R', image: '/static/images/rentals/rental1.jpg' },
-      { id: 2, name: '白日鼠G6', image: '/static/images/rentals/rental2.jpg' },
-      { id: 3, name: '无人机基站', image: '/static/images/rentals/rental3.jpg' },
-      { id: 4, name: 'INYYO 26P', image: '/static/images/rentals/rental4.jpg' },
-      { id: 5, name: '品灵30倍AI识别跟踪', image: '/static/images/rentals/rental5.jpg' },
+      { id: 1, name: '金眼魔Z60R', image: '/static/images/rentals/rental6.jpg' },
+      { id: 2, name: '白日鼠G6', image: '/static/images/rentals/rental6.jpg' },
+      { id: 3, name: '无人机基站', image: '/static/images/rentals/rental6.jpg' },
+      { id: 4, name: 'INYYO 26P', image: '/static/images/rentals/rental6.jpg' },
+      { id: 5, name: '品灵30倍AI识别跟踪', image: '/static/images/rentals/rental6.jpg' },
       { id: 6, name: '品灵30倍光学变焦', image: '/static/images/rentals/rental6.jpg' }
     ],
     platforms: [
-      { id: 1, name: '任务管理平台', image: '/static/images/rentals/rental1.jpg' }
+      { id: 1, name: '任务管理平台', image: '/static/images/rentals/rental6.jpg' }
     ]
   },
 
@@ -96,5 +96,11 @@ Page({
       title: `查看${section}产品: ${id}`,
       icon: 'none'
     });
+  },
+
+  onBackTap() {
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
   }
 }); 

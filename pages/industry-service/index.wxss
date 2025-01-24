@@ -6,9 +6,18 @@
 /* 航拍导航栏 */
 .nav-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20rpx;
+  padding: 20rpx 30rpx;
+  background: #fff;
+}
+
+.nav-header .title {
+  flex: 1;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+  margin-right: 44rpx;
 }
 
 .nav-title {

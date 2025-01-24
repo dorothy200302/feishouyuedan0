@@ -138,5 +138,11 @@ Page({
     wx.navigateTo({
       url: '/pages/apply-merchant/index'
     })
+  },
+
+  onBackTap() {
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
   }
 }) 
