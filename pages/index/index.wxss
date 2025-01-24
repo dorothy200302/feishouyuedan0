@@ -404,4 +404,229 @@
 .content {
   margin-top: 20rpx;
   padding: 0 30rpx;
+}
+
+/* 新闻资讯 */
+.news-section {
+  margin: 20rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.news-item {
+  display: flex;
+  padding: 20rpx;
+  gap: 20rpx;
+}
+
+.news-content {
+  flex: 1;
+}
+
+.news-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.news-meta {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.news-meta text {
+  margin-right: 20rpx;
+}
+
+.news-image {
+  width: 200rpx;
+  height: 140rpx;
+  border-radius: 8rpx;
+}
+
+/* 服务分类 */
+.service-category {
+  margin: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.category-icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FF6B00, #FF9B00);
+}
+
+.category-card {
+  position: relative;
+  height: 200rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.category-card image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20rpx;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-info .name {
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.category-info .more {
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+/* 企业动态 */
+.company-news, .company-case {
+  margin: 20rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.company-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.company-logo {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.company-info {
+  flex: 1;
+}
+
+.company-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.company-time {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+
+.contact-btn {
+  padding: 8rpx 24rpx;
+  background: #ff6b00;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 24rpx;
+}
+
+.content-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-bottom: 16rpx;
+}
+
+.content-tags .tag {
+  font-size: 24rpx;
+  color: #1890ff;
+}
+
+.content-text {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.product-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8rpx;
+}
+
+.product-images image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8rpx;
+}
+
+.case-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8rpx;
+}
+
+.case-images image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8rpx;
+}
+
+.case-footer {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.case-meta {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.company-tag {
+  padding: 4rpx 12rpx;
+  background: #f5f5f5;
+  color: #666;
+  font-size: 24rpx;
+  border-radius: 4rpx;
+}
+
+.rating {
+  font-size: 24rpx;
+  color: #ffa940;
+}
+
+.case-actions {
+  display: flex;
+  gap: 32rpx;
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.action-item van-icon {
+  font-size: 32rpx;
 } 
